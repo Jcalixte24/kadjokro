@@ -328,6 +328,24 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
 .lyric-line.active::before{content:'';display:inline-block;width:8px;height:8px;background:var(--gold);border-radius:2px;transform:rotate(45deg);margin-right:12px;vertical-align:middle}
 .lyric-line em{font-style:normal;font-family:var(--disp);font-size:.6em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-l);vertical-align:middle;margin-left:6px}
 
+/* ══ BLOG / ACTUALITÉS ══ */
+#actualites .photo-bg{background-image:url('img/villageois.jpg');background-position:center 40%}
+#actualites .photo-ov{background:linear-gradient(180deg,rgba(10,23,16,.93),rgba(18,38,26,.95))}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.news-card{display:flex;flex-direction:column;background:rgba(255,255,255,.045);border:1px solid rgba(200,146,42,.2);border-radius:12px;overflow:hidden;transition:transform .4s var(--ease),border-color .4s,background .4s;text-decoration:none}
+.news-card:hover{transform:translateY(-6px);border-color:rgba(200,146,42,.55);background:rgba(255,255,255,.07)}
+.news-media{height:180px;position:relative;overflow:hidden;background:var(--forest-d)}
+.news-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.news-card:hover .news-media img{transform:scale(1.06)}
+.news-src{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--forest-d);font-family:var(--disp);font-size:.55rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:100px}
+.news-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.news-date{font-family:var(--disp);font-size:.57rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l);margin-bottom:10px}
+.news-title{font-family:var(--disp);font-weight:700;font-size:1.02rem;line-height:1.32;color:#fff;margin-bottom:11px}
+.news-exc{font-size:.83rem;line-height:1.65;color:rgba(255,255,255,.62);flex:1}
+.news-more{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-l)}
+.news-more svg{width:13px;height:13px;stroke:var(--gold-l);stroke-width:2;fill:none;transition:transform .3s}
+.news-card:hover .news-more svg{transform:translateX(4px)}
+
 /* ══ MILESTONES (2 dates clés) ══ */
 .milestones{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:38px;text-align:left}
 .ms-card{position:relative;border-radius:12px;overflow:hidden;border:1px solid rgba(200,146,42,.28);min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .4s var(--ease),border-color .4s}
@@ -391,7 +409,7 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
 /* ══ RESPONSIVE ══ */
 @media(max-width:980px){
   .nav-links{display:none}.hamburger{display:flex}
-  .disc-wrap,.or-wrap,.bio-wrap,.itin-wrap,.hymne-wrap,.acte-grid,.milestones{grid-template-columns:1fr}
+  .disc-wrap,.or-wrap,.bio-wrap,.itin-wrap,.hymne-wrap,.acte-grid,.milestones,.news-grid{grid-template-columns:1fr}
   .acts-wrap{height:300vh}
   .acte{padding-top:80px}
   .acte-imgs img{height:32vh}.acte-imgs.two img{height:26vh}
@@ -449,6 +467,7 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
     <a href="#familles">Familles</a>
     <a href="#chefs">Chefs</a>
     <a href="#intronisation">Intronisation</a>
+    <a href="#actualites">Actualités</a>
     <a href="#contact" class="nav-cta">Nous rejoindre</a>
   </div>
   <button class="hamburger" onclick="document.getElementById('mob').classList.add('open')" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
@@ -461,6 +480,7 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
   <a class="mob-link" href="#chefs" onclick="closeMob()">Nos Chefs</a>
   <a class="mob-link" href="#intronisation" onclick="closeMob()">Intronisation</a>
   <a class="mob-link" href="#chef" onclick="closeMob()">Le Chef</a>
+  <a class="mob-link" href="#actualites" onclick="closeMob()">Actualités</a>
   <a class="mob-link" href="#contact" onclick="closeMob()">Nous rejoindre</a>
 </div>
 
@@ -618,11 +638,11 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
     <div class="intro-head rv">
       <div class="eyebrow" style="justify-content:center">Le parcours du chef</div>
       <h2>De l'arrêté à <span class="it">l'intronisation</span></h2>
-      <p class="intro-lead">Après <strong>six longues années d'attente</strong>, Nanan Assamoi Konan 2 accède à la chefferie en deux temps : la reconnaissance officielle par les autorités, puis le couronnement traditionnel devant toute la notabilité.</p>
+      <p class="intro-lead">Après <strong>sept années d'attente</strong>, à la suite du décès de Nanan N'Doly Amlan II, Nanan Assamoi Konan 2 accède à la chefferie en deux temps : la reconnaissance officielle par les autorités, puis le couronnement traditionnel devant toute la notabilité.</p>
     </div>
     <div class="milestones rv">
       <div class="ms-card">
-        <div class="ms-photo" style="background-image:url('img/arrete-remise.jpg')"></div>
+        <div class="ms-photo" style="background-image:url('img/arrete-nomination.jpg');background-position:center 30%"></div>
         <div class="ms-body">
           <span class="ms-step">Étape 1 · Officielle</span>
           <div class="ms-date">26 décembre 2025</div>
@@ -721,6 +741,9 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
       <figure><img src="img/arrete-remise.jpg" alt="Remise de l'arrêté au chef par les autorités" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
       <figure><img src="img/arrete-autorites.jpg" alt="Les autorités préfectorales et le chef" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
       <figure><img src="img/sous-prefet.jpg" alt="Le sous-préfet en tenue lors de la cérémonie" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/arrete-nomination.jpg" alt="Lecture de l'arrêté de nomination" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/peinture.jpg" alt="Remise d'une œuvre en cadeau au chef" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/autorites-2.jpg" alt="Les autorités préfectorales et le chef" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
     </div>
   </div>
 </section>
@@ -811,6 +834,49 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
             <p class="lyric-line">Merci Président Hua Koffi Joachim, homme de valeur ! Merci Nanan Assamoi Konan 2, notre Chef, merci à tous !</p>
             <p class="lyric-line">Vive Kadjokro, esprit nouveau ! <em>bis</em></p>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTUALITÉS / PRESSE -->
+<div class="kente"></div>
+<section class="sec photo-sec" id="actualites">
+  <div class="photo-bg"></div><div class="photo-ov"></div>
+  <div class="sym" data-speed="-12" style="top:12%;left:5%;width:90px;height:90px"><svg viewBox="0 0 48 48"><use href="#s-star"/></svg></div>
+  <div class="inner">
+    <div class="rv" style="text-align:center;max-width:680px;margin:0 auto">
+      <div class="eyebrow light" style="justify-content:center">Presse &amp; Actualités</div>
+      <h2 class="on-photo">Kadjokro dans <span class="it">la presse</span></h2>
+      <p class="lead on-photo" style="color:rgba(255,255,255,.72);margin-inline:auto">L'intronisation de Nanan Assamoi Konan II a été couverte par la presse nationale. Retrouvez les articles consacrés à l'événement.</p>
+    </div>
+    <div class="news-grid">
+      <a class="news-card rv d1" href="https://lesechosci.net/2026/04/27/kadjokro-chefferie-traditionnelle-nanan-assamoi-konan-ii-intronise-dans-une-liesse-populaire/" target="_blank" rel="noopener">
+        <div class="news-media"><span class="news-src">Les Échos CI</span><img src="img/couronnement.jpg" alt="Intronisation dans une liesse populaire" loading="lazy"></div>
+        <div class="news-body">
+          <div class="news-date">27 avril 2026 · Chefferie traditionnelle</div>
+          <div class="news-title">Nanan Assamoi Konan II intronisé dans une liesse populaire</div>
+          <p class="news-exc">« Après sept années d'attente à la suite du décès de Nanan N'Doly Amlan II, le village de Kadjokro… a renoué avec la tradition en procédant à l'intronisation officielle de son nouveau chef. »</p>
+          <span class="news-more">Lire l'article <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a class="news-card rv d2" href="https://opr.news/s4935e32b260429fr_ci?link=1&amp;client=news" target="_blank" rel="noopener">
+        <div class="news-media"><span class="news-src">OPR News</span><img src="img/cortege.jpg" alt="Cortège de l'intronisation" loading="lazy"></div>
+        <div class="news-body">
+          <div class="news-date">Avril 2026 · Actualité</div>
+          <div class="news-title">Intronisation du chef de Kadjokro — Toumodi</div>
+          <p class="news-exc">Retour en images et en texte sur la cérémonie traditionnelle d'intronisation de Nanan Assamoi Konan II, dans la sous-préfecture de Toumodi. #Intronisation</p>
+          <span class="news-more">Lire l'article <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <div class="news-card rv d3">
+        <div class="news-media"><span class="news-src">L'Abidjanais</span><img src="img/chef-portrait.jpg" alt="Nanan Assamoi Konan II" loading="lazy"></div>
+        <div class="news-body">
+          <div class="news-date">Avril 2026 · Par Julien Koffi</div>
+          <div class="news-title">Le président de la Cour de cassation, Yua Koffi, annoncé</div>
+          <p class="news-exc">Placée sous le haut patronage du président de la Cour de cassation, Yua Koffi, la cérémonie traditionnelle vise à renforcer la cohésion sociale et à impulser une nouvelle dynamique de progrès pour Kadjokro.</p>
+          <span class="news-more" style="color:rgba(255,255,255,.45)">Coupure de presse</span>
         </div>
       </div>
     </div>
