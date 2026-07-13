@@ -132,7 +132,7 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--go
 .d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}.d4{transition-delay:.38s}.d5{transition-delay:.48s}
 
 /* ══ per-section backgrounds ══ */
-#decouverte .photo-bg{background-image:url('img/place-village.jpg');background-position:center 60%}
+#decouverte .photo-bg{background-image:url('img/villageois.jpg');background-position:center 45%}
 #decouverte .photo-ov{background:linear-gradient(180deg,rgba(7,15,10,.9),rgba(18,38,26,.92))}
 #or .photo-bg{background-image:url('img/sceptre-or.jpg');background-position:center 25%}
 #or .photo-ov{background:linear-gradient(120deg,rgba(7,15,10,.95) 0%,rgba(7,15,10,.72) 55%,rgba(18,38,26,.9) 100%),radial-gradient(circle at 78% 40%,rgba(200,146,42,.22),transparent 55%)}
@@ -296,10 +296,74 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
 .footer-gem{display:flex;gap:8px;align-items:center;font-family:var(--disp);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l)}
 .footer-gem svg{width:16px;height:16px;fill:var(--gold)}
 
+/* ══ family head ══ */
+.fam-head{margin-top:14px;padding-top:12px;border-top:1px solid rgba(200,146,42,.2);font-size:.86rem;color:#fff;font-family:var(--disp);font-weight:700}
+.fam-head span{display:block;font-family:var(--disp);font-size:.52rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-l);margin-bottom:5px}
+.fam-head.vacant{color:rgba(255,255,255,.55);font-weight:400;font-style:italic}
+
+/* ══ HYMNE ══ */
+#hymne .photo-bg{background-image:url('img/chefs-kente.jpg');background-position:center 30%}
+#hymne .photo-ov{background:linear-gradient(180deg,rgba(7,15,10,.93),rgba(18,38,26,.95))}
+.hymne-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,60px);align-items:center}
+.hymne-player{position:relative;border-radius:10px;overflow:hidden;border:1px solid rgba(200,146,42,.3);box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.hymne-player video{width:100%;display:block;background:#000}
+.hymne-lyrics{font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.95;color:rgba(255,255,255,.88);margin-top:22px}
+.hymne-lyrics .stanza{margin-bottom:16px;padding-left:18px;border-left:2px solid rgba(200,146,42,.45)}
+.hymne-note{font-family:var(--body);font-style:normal;font-size:.78rem;color:var(--gold-l);margin-top:14px;opacity:.85}
+
+/* ══ SCROLLYTELLING intronisation ══ */
+.acts-wrap{position:relative;height:340vh;background:var(--forest-d)}
+.acts-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.acts-bg{position:absolute;inset:0;z-index:0;background:url('img/couronnement.jpg') center/cover;opacity:.14}
+.acts-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,15,10,.6),rgba(7,15,10,.85))}
+.acte{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:88px clamp(20px,5vw,60px) 70px;opacity:0;transform:scale(1.05);transition:opacity .8s var(--ease),transform .8s var(--ease);pointer-events:none;z-index:1}
+.acte.active{opacity:1;transform:none;pointer-events:auto}
+.acte-grid{max-width:1180px;width:100%;display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,56px);align-items:center}
+.acte-num{font-family:var(--serif);font-style:italic;font-size:clamp(4rem,10vw,7rem);color:var(--gold-l);line-height:.85}
+.acte-eye{font-family:var(--disp);font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:14px 0 6px}
+.acte-t{font-family:var(--disp);font-weight:800;font-size:clamp(1.7rem,4vw,2.8rem);color:#fff;margin-bottom:16px;line-height:1.05}
+.acte-d{font-size:1rem;line-height:1.85;color:rgba(255,255,255,.8);max-width:440px}
+.acte-d strong{color:var(--gold-l)}
+.acte-imgs{display:grid;gap:14px}
+.acte-imgs.two{grid-template-columns:1fr 1fr}
+.acte-imgs img{width:100%;height:min(58vh,460px);object-fit:cover;border-radius:8px;box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.acte-imgs.two img{height:min(44vh,380px)}
+.acts-progress{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);display:flex;gap:10px;z-index:5}
+.acts-progress i{width:34px;height:3px;border-radius:2px;background:rgba(255,255,255,.22);transition:background .4s}
+.acts-progress i.on{background:var(--gold)}
+
+/* ══ GALLERY + LIGHTBOX ══ */
+#galerie .photo-bg{background-image:url('img/villageois.jpg');background-position:center}
+#galerie .photo-ov{background:linear-gradient(180deg,rgba(7,15,10,.94),rgba(7,15,10,.96))}
+.gallery{columns:4 210px;column-gap:14px;margin-top:44px}
+.gallery figure{break-inside:avoid;margin:0 0 14px;position:relative;border-radius:8px;overflow:hidden;cursor:pointer}
+.gallery img{width:100%;display:block;transition:transform .6s var(--ease)}
+.gallery figure::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(200,146,42,.3),transparent 55%);opacity:0;transition:opacity .3s}
+.gallery figure:hover img{transform:scale(1.06)}
+.gallery figure:hover::after{opacity:1}
+.gallery .zoom{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:rgba(7,15,10,.7);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;z-index:2}
+.gallery figure:hover .zoom{opacity:1}
+.gallery .zoom svg{width:15px;height:15px;stroke:var(--gold-l);stroke-width:2.2;fill:none}
+.lb{position:fixed;inset:0;z-index:1000;background:rgba(5,10,7,.94);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.lb.open{display:flex;opacity:1}
+.lb img{max-width:92vw;max-height:86vh;border-radius:6px;box-shadow:0 30px 90px rgba(0,0,0,.7);transform:scale(.96);transition:transform .3s var(--ease)}
+.lb.open img{transform:none}
+.lb-btn{position:absolute;background:rgba(255,255,255,.08);border:1px solid rgba(200,146,42,.4);color:#fff;width:50px;height:50px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lb-btn:hover{background:rgba(200,146,42,.25)}
+.lb-btn svg{width:22px;height:22px;stroke:#fff;stroke-width:2;fill:none}
+.lb-prev{left:3vw;top:50%;transform:translateY(-50%)}
+.lb-next{right:3vw;top:50%;transform:translateY(-50%)}
+.lb-close{top:3vh;right:3vw}
+.lb-cap{position:absolute;bottom:3vh;left:50%;transform:translateX(-50%);font-family:var(--disp);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l)}
+
 /* ══ RESPONSIVE ══ */
 @media(max-width:980px){
   .nav-links{display:none}.hamburger{display:flex}
-  .disc-wrap,.or-wrap,.bio-wrap,.itin-wrap{grid-template-columns:1fr}
+  .disc-wrap,.or-wrap,.bio-wrap,.itin-wrap,.hymne-wrap,.acte-grid{grid-template-columns:1fr}
+  .acts-wrap{height:300vh}
+  .acte{padding-top:80px}
+  .acte-imgs img{height:32vh}.acte-imgs.two img{height:26vh}
+  .gallery{columns:2 150px}
   .footer-top{grid-template-columns:1fr;gap:30px}
   .mosaic{grid-template-columns:repeat(4,1fr);grid-auto-rows:130px}
   .mosaic .m1{grid-column:span 2;grid-row:span 2}.mosaic .m2{grid-column:span 2}.mosaic .m3{grid-column:span 2}
@@ -309,7 +373,9 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
   .stats-grid{grid-template-columns:1fr 1fr;gap:30px 16px}.stat:nth-child(2)::after{display:none}
   .fam-grid,.prog,.ress-grid,.or-cards{grid-template-columns:1fr}
   .bio-facts{grid-template-columns:1fr}
-  .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:120px}.mosaic .m1{grid-column:span 2}
+  .acte-imgs.two{grid-template-columns:1fr}.acte-imgs.two img{height:22vh}
+  .gallery{columns:2 120px}
+  .lb-btn{width:42px;height:42px}.lb-prev{left:2vw}.lb-next{right:2vw}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms !important;transition-duration:.01ms !important}
@@ -476,10 +542,10 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
       <p class="lead" style="margin-inline:auto">Quatre familles fondatrices — piliers de l'identité, de la gouvernance et de la cohésion du village depuis des générations.</p>
     </div>
     <div class="fam-grid">
-      <div class="fam-card rv d1"><span class="big">01</span><div class="fam-num">Famille 01</div><div class="fam-name">N'GODO <span>Ossou</span></div><p class="fam-desc">Famille détentrice de la chefferie actuelle. Nanan Assamoi Konan 2 en est l'illustre représentant.</p><span class="fam-tag chief">Famille du Chef actuel</span></div>
-      <div class="fam-card rv d2"><span class="big">02</span><div class="fam-num">Famille 02</div><div class="fam-name">N'GUESSAN <span>Ossou</span></div><p class="fam-desc">Grande famille traditionnelle contribuant activement à la gouvernance du village.</p><span class="fam-tag reg">Grande famille</span></div>
-      <div class="fam-card rv d3"><span class="big">03</span><div class="fam-num">Famille 03</div><div class="fam-name">AHOU <span>Ossou</span></div><p class="fam-desc">Pilier de la tradition baoulé, gardienne des coutumes et des rites ancestraux.</p><span class="fam-tag reg">Grande famille</span></div>
-      <div class="fam-card rv d4"><span class="big">04</span><div class="fam-num">Famille 04</div><div class="fam-name">AKISSI <span>Ossou</span></div><p class="fam-desc">Quatrième pilier de la communauté, garant de l'équilibre et de l'harmonie sociale.</p><span class="fam-tag reg">Grande famille</span></div>
+      <div class="fam-card rv d1"><span class="big">01</span><div class="fam-num">Famille 01</div><div class="fam-name">N'GODO <span>Ossou</span></div><p class="fam-desc">Famille détentrice de la chefferie actuelle. Nanan Assamoi Konan 2 en est l'illustre représentant.</p><div class="fam-head"><span>Chef de famille</span>Kouadio N'Guessan dit BabaKAN</div><span class="fam-tag chief">Famille du Chef actuel</span></div>
+      <div class="fam-card rv d2"><span class="big">02</span><div class="fam-num">Famille 02</div><div class="fam-name">N'GUESSAN <span>Ossou</span></div><p class="fam-desc">Grande famille traditionnelle contribuant activement à la gouvernance du village.</p><div class="fam-head"><span>Chef de famille</span>Yoman Barthélemy</div><span class="fam-tag reg">Grande famille</span></div>
+      <div class="fam-card rv d3"><span class="big">03</span><div class="fam-num">Famille 03</div><div class="fam-name">AHOU <span>Ossou</span></div><p class="fam-desc">Pilier de la tradition baoulé, gardienne des coutumes et des rites ancestraux.</p><div class="fam-head"><span>Chef de famille</span>Dit Bôle N'DRI</div><span class="fam-tag reg">Grande famille</span></div>
+      <div class="fam-card rv d4"><span class="big">04</span><div class="fam-num">Famille 04</div><div class="fam-name">AKISSI <span>Ossou</span></div><p class="fam-desc">Quatrième pilier de la communauté, garant de l'équilibre et de l'harmonie sociale.</p><div class="fam-head vacant"><span>Chef de famille</span>Poste vacant — regretté défunt</div><span class="fam-tag reg">Grande famille</span></div>
     </div>
     <div class="proverb rv d2">
       <p>«&nbsp;Un village sans chef est comme <span class="q">une case sans pilier</span>.&nbsp;»</p>
@@ -521,21 +587,95 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
       <h2>Cérémonie <span class="it">d'intronisation</span></h2>
       <p class="intro-lead">Après <strong>six longues années d'attente</strong>, le village a vécu un moment solennel : l'intronisation de son septième chef, Nanan Assamoi Konan 2 — couronné selon la coutume, tabouret sacré et sceptre d'or à l'appui, devant toute la notabilité.</p>
     </div>
-    <div class="mosaic rv">
-      <figure class="m1"><img src="img/couronnement.jpg" alt="Le couronnement du chef" loading="lazy"></figure>
-      <figure class="m2"><img src="img/chefs-parasol.jpg" alt="Chefs en kenté sous les parasols royaux" loading="lazy"></figure>
-      <figure class="m3"><img src="img/tabouret-or.jpg" alt="Le tabouret sacré porté en procession" loading="lazy"></figure>
-      <figure class="m3"><img src="img/cortege.jpg" alt="Cortège des chefs et notables" loading="lazy"></figure>
-      <figure class="m3"><img src="img/danse.jpg" alt="Danses traditionnelles" loading="lazy"></figure>
-      <figure class="m3"><img src="img/enfants.jpg" alt="Enfants en tenue traditionnelle" loading="lazy"></figure>
+    <p class="intro-lead rv" style="text-align:center;font-family:var(--disp);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-l);margin-top:26px">Faites défiler — la cérémonie se dévoile acte après acte ↓</p>
+  </div>
+</section>
+
+<!-- SCROLLYTELLING : LES ACTES -->
+<div class="acts-wrap" id="acts">
+  <div class="acts-sticky">
+    <div class="acts-bg"></div>
+    <div class="acte active" data-acte="0">
+      <div class="acte-grid">
+        <div>
+          <div class="acte-num">01</div>
+          <div class="acte-eye">Premier acte</div>
+          <div class="acte-t">Le Tabouret Sacré</div>
+          <div class="acte-d">Procession solennelle du <strong>tabouret sacré</strong> et des regalia en or — siège des ancêtres, porté sur la tête devant toute la communauté rassemblée.</div>
+        </div>
+        <div class="acte-imgs two">
+          <img src="img/tabouret-porte.jpg" alt="Le tabouret sacré porté en procession">
+          <img src="img/tabouret-or.jpg" alt="Le tabouret sacré aux symboles baoulé">
+        </div>
+      </div>
     </div>
-    <div class="prog">
-      <div class="prog-card rv d1"><div class="prog-num">01</div><div class="prog-t">Procession du <strong>tabouret sacré</strong> et des regalia en or, accueil des personnalités et notables.</div></div>
-      <div class="prog-card rv d2"><div class="prog-num">02</div><div class="prog-t">Rituel traditionnel — <strong>couronnement</strong> du chef, remise du sceptre et prestation de serment.</div></div>
-      <div class="prog-card rv d3"><div class="prog-num">03</div><div class="prog-t">Bénédiction ancestrale, danses et grandes festivités populaires jusque tard dans la nuit.</div></div>
+    <div class="acte" data-acte="1">
+      <div class="acte-grid">
+        <div>
+          <div class="acte-num">02</div>
+          <div class="acte-eye">Deuxième acte</div>
+          <div class="acte-t">Le Couronnement</div>
+          <div class="acte-d">Le nouveau chef est <strong>couronné selon la coutume</strong>, reçoit le sceptre d'or et prête serment devant la notabilité et les rois voisins.</div>
+        </div>
+        <div class="acte-imgs">
+          <img src="img/couronnement.jpg" alt="Le couronnement de Nanan Assamoi Konan 2">
+        </div>
+      </div>
+    </div>
+    <div class="acte" data-acte="2">
+      <div class="acte-grid">
+        <div>
+          <div class="acte-num">03</div>
+          <div class="acte-eye">Troisième acte</div>
+          <div class="acte-t">Les Festivités</div>
+          <div class="acte-d">Bénédiction ancestrale, <strong>danses traditionnelles</strong> et grandes festivités populaires qui embrasent le village jusque tard dans la nuit.</div>
+        </div>
+        <div class="acte-imgs two">
+          <img src="img/danse.jpg" alt="Danses traditionnelles">
+          <img src="img/couple-fete.jpg" alt="Le chef et son épouse en fête">
+        </div>
+      </div>
+    </div>
+    <div class="acts-progress"><i class="on"></i><i></i><i></i></div>
+  </div>
+</div>
+
+<!-- GALERIE -->
+<section class="sec" id="galerie">
+  <div class="photo-bg"></div><div class="photo-ov"></div>
+  <div class="inner">
+    <div class="gal-head rv">
+      <div class="eyebrow" style="justify-content:center">Souvenirs</div>
+      <h2>Galerie de <span class="it">l'intronisation</span></h2>
+      <p class="lead" style="margin-inline:auto">Cliquez sur une photo pour l'agrandir · naviguez avec les flèches.</p>
+    </div>
+    <div class="gallery rv" id="gallery">
+      <figure><img src="img/couronnement.jpg" alt="Le couronnement" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/chefs-parasol.jpg" alt="Chefs en kenté sous les parasols" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/tabouret-porte.jpg" alt="Le tabouret sacré porté" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/cortege.jpg" alt="Cortège des chefs et notables" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/chefs-kente.jpg" alt="Chefs en tenue royale" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/danse.jpg" alt="Danses traditionnelles" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/enfants.jpg" alt="Enfants en tenue traditionnelle" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/couple-fete.jpg" alt="Le chef et son épouse" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/roi-trone2.jpg" alt="Le chef sur le trône" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/chef-portrait.jpg" alt="La couronne royale" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/sceptre-or.jpg" alt="Le sceptre d'or" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/tabouret-or.jpg" alt="Le tabouret sacré" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/salle-reception.jpg" alt="Réception à la résidence" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/villageois.jpg" alt="Les villageois rassemblés" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
     </div>
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb-btn lb-close" aria-label="Fermer"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <button class="lb-btn lb-prev" aria-label="Précédent"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button class="lb-btn lb-next" aria-label="Suivant"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+  <img src="" alt="Photo de l'intronisation agrandie">
+  <div class="lb-cap">Village de Kadjokro · Intronisation 2025</div>
+</div>
 
 <div class="kente"></div>
 
@@ -559,6 +699,7 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
           <span class="chip">Adjamé, Abidjan</span>
           <span class="chip">Famille N'Godo Ossou</span>
           <span class="chip">Maîtrise Sciences Éco.</span>
+          <span class="chip">Diplomate humanitaire</span>
           <span class="chip">Retraite PETROCI 2019</span>
         </div>
         <div class="bio-body">
@@ -571,8 +712,33 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
           <cite>— Vision de Nanan Assamoi Konan 2</cite>
         </div>
         <div class="bio-facts">
-          <div class="bio-fact"><div class="fl">Engagements</div><div class="fv">Conseiller Municipal de Toumodi<br>Président Croix-Rouge de Toumodi<br>Fondateur Compagnie « Tam Tam »</div></div>
+          <div class="bio-fact"><div class="fl">Engagements</div><div class="fv">Diplomate humanitaire<br>Conseiller Municipal de Toumodi<br>Président Croix-Rouge de Toumodi<br>Fondateur Compagnie « Tam Tam »</div></div>
           <div class="bio-fact"><div class="fl">Parcours</div><div class="fv">BP · ELF · TOTAL Énergie<br>PETROCI — Chef de Service<br>Gaz Naturel · Retraite 2019</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HYMNE -->
+<section class="sec" id="hymne">
+  <div class="photo-bg"></div><div class="photo-ov"></div>
+  <div class="sym solid" data-speed="-14" style="top:12%;right:7%;width:70px;height:70px"><svg viewBox="0 0 48 48"><use href="#s-sun"/></svg></div>
+  <div class="inner">
+    <div class="hymne-wrap">
+      <div class="hymne-player rl">
+        <video controls preload="metadata" playsinline poster="img/roi-trone-hero.jpg">
+          <source src="hymne.mp4" type="video/mp4">
+          Votre navigateur ne permet pas la lecture de l'hymne.
+        </video>
+      </div>
+      <div class="rr">
+        <div class="eyebrow">Chant royal</div>
+        <h2>L'Hymne du <span class="it">Chef</span></h2>
+        <div class="hymne-lyrics">
+          <div class="stanza">Kadjokro, terre de nos aïeux,<br>sous l'or de la couronne et la voix des tambours,<br>nous chantons Nanan Assamoi Konan 2.</div>
+          <div class="stanza">Dans l'unité, la discipline et la prospérité,<br>Esprit Nouveau, notre village s'élève.</div>
+          <p class="hymne-note">▸ Ceci est un texte provisoire. Envoie-moi les paroles exactes de l'hymne et je les inscris fidèlement ici.</p>
         </div>
       </div>
     </div>
@@ -702,6 +868,44 @@ document.querySelectorAll('.rv,.rl,.rr,.rz,.clip').forEach(el=>obs.observe(el));
 
 const cObs=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.count;let c=0;const step=Math.max(Math.ceil(t/45),1);const iv=setInterval(()=>{c=Math.min(c+step,t);el.textContent=c.toLocaleString('fr-FR');if(c>=t)clearInterval(iv)},26);cObs.unobserve(el)})},{threshold:.6});
 document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
+
+// ── Scrollytelling : les actes ──
+const actsWrap=document.getElementById('acts');
+if(actsWrap){
+  const actes=[...actsWrap.querySelectorAll('.acte')];
+  const dots=[...actsWrap.querySelectorAll('.acts-progress i')];
+  let at=false;
+  function updateActs(){
+    const r=actsWrap.getBoundingClientRect();
+    const total=actsWrap.offsetHeight-innerHeight;
+    const scrolled=Math.min(Math.max(-r.top,0),total);
+    const p=total>0?scrolled/total:0;
+    const idx=Math.min(actes.length-1,Math.max(0,Math.floor(p*actes.length)));
+    actes.forEach((a,i)=>a.classList.toggle('active',i===idx));
+    dots.forEach((d,i)=>d.classList.toggle('on',i===idx));
+    at=false;
+  }
+  addEventListener('scroll',()=>{if(!at){requestAnimationFrame(updateActs);at=true}},{passive:true});
+  addEventListener('resize',updateActs);updateActs();
+}
+
+// ── Lightbox galerie ──
+const gallery=document.getElementById('gallery');
+const lb=document.getElementById('lb');
+if(gallery&&lb){
+  const figs=[...gallery.querySelectorAll('figure img')];
+  const srcs=figs.map(i=>i.getAttribute('src'));
+  const lbImg=lb.querySelector('img');
+  let li=0;
+  function openLb(i){li=(i+srcs.length)%srcs.length;lbImg.src=srcs[li];lb.classList.add('open');document.body.style.overflow='hidden'}
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow=''}
+  figs.forEach((im,i)=>im.parentElement.addEventListener('click',()=>openLb(i)));
+  lb.querySelector('.lb-next').addEventListener('click',e=>{e.stopPropagation();openLb(li+1)});
+  lb.querySelector('.lb-prev').addEventListener('click',e=>{e.stopPropagation();openLb(li-1)});
+  lb.querySelector('.lb-close').addEventListener('click',e=>{e.stopPropagation();closeLb()});
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+  addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();else if(e.key==='ArrowRight')openLb(li+1);else if(e.key==='ArrowLeft')openLb(li-1)});
+}
 </script>
 </body>
 </html>
