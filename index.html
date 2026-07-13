@@ -310,6 +310,14 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
 .hymne-lyrics{font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.95;color:rgba(255,255,255,.88);margin-top:22px}
 .hymne-lyrics .stanza{margin-bottom:16px;padding-left:18px;border-left:2px solid rgba(200,146,42,.45)}
 .hymne-note{font-family:var(--body);font-style:normal;font-size:.78rem;color:var(--gold-l);margin-top:14px;opacity:.85}
+.lyrics-hint{font-family:var(--body);font-style:normal;font-size:.74rem;letter-spacing:.02em;color:var(--gold-l);margin:16px 0 4px;opacity:.85}
+.lyrics-view{position:relative;height:360px;overflow:hidden;margin-top:10px;-webkit-mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent)}
+.lyrics-track{transition:transform .55s var(--ease);will-change:transform}
+.lyric-line{font-family:var(--serif);font-style:italic;font-size:1.24rem;line-height:1.45;color:rgba(255,255,255,.3);padding:9px 0;cursor:pointer;transition:color .4s,transform .4s;transform-origin:left}
+.lyric-line.past{color:rgba(255,255,255,.5)}
+.lyric-line.active{color:#fff;font-weight:600;transform:scale(1.05)}
+.lyric-line.active::before{content:'';display:inline-block;width:8px;height:8px;background:var(--gold);border-radius:2px;transform:rotate(45deg);margin-right:12px;vertical-align:middle}
+.lyric-line em{font-style:normal;font-family:var(--disp);font-size:.6em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-l);vertical-align:middle;margin-left:6px}
 
 /* ══ SCROLLYTELLING intronisation ══ */
 .acts-wrap{position:relative;height:340vh;background:var(--forest-d)}
@@ -735,10 +743,25 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
       <div class="rr">
         <div class="eyebrow">Chant royal</div>
         <h2>L'Hymne du <span class="it">Chef</span></h2>
-        <div class="hymne-lyrics">
-          <div class="stanza">Kadjokro, terre de nos aïeux,<br>sous l'or de la couronne et la voix des tambours,<br>nous chantons Nanan Assamoi Konan 2.</div>
-          <div class="stanza">Dans l'unité, la discipline et la prospérité,<br>Esprit Nouveau, notre village s'élève.</div>
-          <p class="hymne-note">▸ Ceci est un texte provisoire. Envoie-moi les paroles exactes de l'hymne et je les inscris fidèlement ici.</p>
+        <p class="lyrics-hint">▶ Lancez l'hymne — les paroles s'illuminent au fil du chant.</p>
+        <div class="lyrics-view">
+          <div class="lyrics-track" id="lyrics">
+            <p class="lyric-line">Chers parents, chers invités !</p>
+            <p class="lyric-line">Bienvenue à Kadjokro, village du renouveau et de l'espoir.</p>
+            <p class="lyric-line">Akwaba, Moh ni balè à Kadjokro ! <em>bis</em></p>
+            <p class="lyric-line">Nous avons attendu dans la patience, dans les épreuves et dans la persévérance !</p>
+            <p class="lyric-line">Les ancêtres ont parlé ! Le Président Hua l'a compris : il a été l'initiateur, le facilitateur !</p>
+            <p class="lyric-line">Merci Président Hua Koffi Joachim, merci pour ta bienveillance et ta clairvoyance !</p>
+            <p class="lyric-line">Notre Chef est là <em>bis</em> : Nanan Assamoi Konan 2, un Chef Moderne et Modèle ! <em>bis</em></p>
+            <p class="lyric-line">Merci Chef, Gna gna gna kloi, Nanan Assamoi Konan 2 <em>bis</em></p>
+            <p class="lyric-line">Dirige ton peuple avec sagesse et paix !</p>
+            <p class="lyric-line">Apporte-nous l'Unité, la Discipline et la Prospérité ! <em>bis</em></p>
+            <p class="lyric-line">Nous avons confiance en toi !</p>
+            <p class="lyric-line">Que Dieu guide tes pas ! <em>bis</em></p>
+            <p class="lyric-line">Vive Kadjokro, esprit nouveau ! <em>bis</em></p>
+            <p class="lyric-line">Merci Président Hua Koffi Joachim, homme de valeur ! Merci Nanan Assamoi Konan 2, notre Chef, merci à tous !</p>
+            <p class="lyric-line">Vive Kadjokro, esprit nouveau ! <em>bis</em></p>
+          </div>
         </div>
       </div>
     </div>
@@ -887,6 +910,34 @@ if(actsWrap){
   }
   addEventListener('scroll',()=>{if(!at){requestAnimationFrame(updateActs);at=true}},{passive:true});
   addEventListener('resize',updateActs);updateActs();
+}
+
+// ── Hymne : paroles synchronisées (style Apple Music) ──
+const hv=document.querySelector('#hymne video');
+const lyrTrack=document.getElementById('lyrics');
+if(hv&&lyrTrack){
+  const lines=[...lyrTrack.querySelectorAll('.lyric-line')];
+  const weights=lines.map(l=>Math.max(l.textContent.length,14));
+  const totalW=weights.reduce((a,b)=>a+b,0);
+  const starts=[];let acc=0;weights.forEach(w=>{starts.push(acc/totalW);acc+=w});
+  const view=lyrTrack.parentElement;
+  let cur=-1;
+  function setActive(idx){
+    if(idx===cur)return;cur=idx;
+    lines.forEach((l,i)=>{l.classList.toggle('active',i===idx);l.classList.toggle('past',i<idx)});
+    const l=lines[idx];
+    if(l)lyrTrack.style.transform='translateY('+(view.clientHeight/2-(l.offsetTop+l.offsetHeight/2))+'px)';
+  }
+  function sync(){
+    const d=hv.duration||166,f=hv.currentTime/d;
+    let idx=0;for(let i=0;i<starts.length;i++){if(starts[i]<=f)idx=i;else break;}
+    setActive(idx);
+  }
+  hv.addEventListener('timeupdate',sync);
+  hv.addEventListener('seeked',sync);
+  lines.forEach((l,i)=>l.addEventListener('click',()=>{hv.currentTime=starts[i]*(hv.duration||166);hv.play()}));
+  requestAnimationFrame(()=>setActive(0));
+  addEventListener('resize',()=>{const c=cur<0?0:cur;cur=-1;setActive(c)});
 }
 
 // ── Lightbox galerie ──
