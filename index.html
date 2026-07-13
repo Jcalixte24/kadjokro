@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Village de Kadjokro — Esprit Nouveau, Terre d'Or | Toumodi, Côte d'Ivoire</title>
-<meta name="description" content="Village de Kadjokro, sous-préfecture de Toumodi, région du Bélier, Côte d'Ivoire. Terre d'or et de tradition : histoire, 4 grandes familles, chefferie et intronisation de Nanan Assamoi Konan 2 — 26 Décembre 2025.">
+<meta name="description" content="Village de Kadjokro, sous-préfecture de Toumodi, région du Bélier, Côte d'Ivoire. Terre d'or et de tradition : histoire, 4 grandes familles, chefferie et intronisation de Nanan Assamoi Konan 2 — 25 avril 2026.">
 <link rel="canonical" href="https://kadjokro.netlify.app/">
 <meta property="og:title" content="Village de Kadjokro — Esprit Nouveau, Terre d'Or">
 <meta property="og:description" content="Terre d'or et de tradition. Histoire, chefferie et intronisation du village de Kadjokro, Côte d'Ivoire.">
@@ -328,6 +328,21 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
 .lyric-line.active::before{content:'';display:inline-block;width:8px;height:8px;background:var(--gold);border-radius:2px;transform:rotate(45deg);margin-right:12px;vertical-align:middle}
 .lyric-line em{font-style:normal;font-family:var(--disp);font-size:.6em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-l);vertical-align:middle;margin-left:6px}
 
+/* ══ MILESTONES (2 dates clés) ══ */
+.milestones{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:38px;text-align:left}
+.ms-card{position:relative;border-radius:12px;overflow:hidden;border:1px solid rgba(200,146,42,.28);min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .4s var(--ease),border-color .4s}
+.ms-card:hover{transform:translateY(-6px);border-color:rgba(200,146,42,.6)}
+.ms-photo{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;transition:transform 6s var(--ease)}
+.ms-card:hover .ms-photo{transform:scale(1.06)}
+.ms-card::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(7,15,10,.96) 8%,rgba(7,15,10,.5) 45%,rgba(7,15,10,.15) 100%)}
+.ms-body{position:relative;z-index:2;padding:28px 26px}
+.ms-step{display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-size:.56rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--forest-d);background:var(--gold);padding:5px 12px;border-radius:100px;margin-bottom:14px}
+.ms-date{font-family:var(--serif);font-style:italic;font-size:1.7rem;font-weight:600;color:var(--gold-l);line-height:1}
+.ms-t{font-family:var(--disp);font-weight:800;font-size:1.3rem;color:#fff;margin:6px 0 10px}
+.ms-d{font-size:.86rem;line-height:1.7;color:rgba(255,255,255,.75)}
+.ms-arrow{margin-top:14px;display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-l)}
+.ms-arrow svg{width:14px;height:14px;stroke:var(--gold-l);stroke-width:2;fill:none}
+
 /* ══ SCROLLYTELLING intronisation ══ */
 .acts-wrap{position:relative;height:340vh;background:var(--forest-d)}
 .acts-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -376,7 +391,7 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
 /* ══ RESPONSIVE ══ */
 @media(max-width:980px){
   .nav-links{display:none}.hamburger{display:flex}
-  .disc-wrap,.or-wrap,.bio-wrap,.itin-wrap,.hymne-wrap,.acte-grid{grid-template-columns:1fr}
+  .disc-wrap,.or-wrap,.bio-wrap,.itin-wrap,.hymne-wrap,.acte-grid,.milestones{grid-template-columns:1fr}
   .acts-wrap{height:300vh}
   .acte{padding-top:80px}
   .acte-imgs img{height:32vh}.acte-imgs.two img{height:26vh}
@@ -473,8 +488,8 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
 <!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
-    <span>Kadjokro, Esprit Nouveau</span><span>Terre d'Or</span><span>Sagesse Baoulé</span><span>4 Grandes Familles</span><span>Intronisation 2025</span><span>Canton N'Zipkri</span>
-    <span>Kadjokro, Esprit Nouveau</span><span>Terre d'Or</span><span>Sagesse Baoulé</span><span>4 Grandes Familles</span><span>Intronisation 2025</span><span>Canton N'Zipkri</span>
+    <span>Kadjokro, Esprit Nouveau</span><span>Terre d'Or</span><span>Sagesse Baoulé</span><span>4 Grandes Familles</span><span>Intronisation 2026</span><span>Canton N'Zipkri</span>
+    <span>Kadjokro, Esprit Nouveau</span><span>Terre d'Or</span><span>Sagesse Baoulé</span><span>4 Grandes Familles</span><span>Intronisation 2026</span><span>Canton N'Zipkri</span>
   </div>
 </div>
 
@@ -564,7 +579,7 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
       <div class="fam-card rv d1"><span class="big">01</span><div class="fam-num">Famille 01</div><div class="fam-name">N'GODO <span>Ossou</span></div><p class="fam-desc">Famille détentrice de la chefferie actuelle. Nanan Assamoi Konan 2 en est l'illustre représentant.</p><div class="fam-head"><span>Chef de famille</span>Kouadio N'Guessan dit BabaKAN</div><span class="fam-tag chief">Famille du Chef actuel</span></div>
       <div class="fam-card rv d2"><span class="big">02</span><div class="fam-num">Famille 02</div><div class="fam-name">N'GUESSAN <span>Ossou</span></div><p class="fam-desc">Grande famille traditionnelle contribuant activement à la gouvernance du village.</p><div class="fam-head"><span>Chef de famille</span>Yoman Barthélemy</div><span class="fam-tag reg">Grande famille</span></div>
       <div class="fam-card rv d3"><span class="big">03</span><div class="fam-num">Famille 03</div><div class="fam-name">AHOU <span>Ossou</span></div><p class="fam-desc">Pilier de la tradition baoulé, gardienne des coutumes et des rites ancestraux.</p><div class="fam-head"><span>Chef de famille</span>Kouadio N'DRI dit Bôle</div><span class="fam-tag reg">Grande famille</span></div>
-      <div class="fam-card rv d4"><span class="big">04</span><div class="fam-num">Famille 04</div><div class="fam-name">AKISSI <span>Ossou</span></div><p class="fam-desc">Quatrième pilier de la communauté, garant de l'équilibre et de l'harmonie sociale.</p><div class="fam-head vacant"><span>Chef de famille</span>En mémoire du regretté chef de famille</div><span class="fam-tag reg">Grande famille</span></div>
+      <div class="fam-card rv d4"><span class="big">04</span><div class="fam-num">Famille 04</div><div class="fam-name">AKISSI <span>Ossou</span></div><p class="fam-desc">Quatrième pilier de la communauté, garant de l'équilibre et de l'harmonie sociale.</p><div class="fam-head"><span>Chef de famille</span>Kouadio Kouassi Pascal</div><span class="fam-tag reg">Grande famille</span></div>
     </div>
     <div class="proverb rv d2">
       <p>«&nbsp;Un village sans chef est comme <span class="q">une case sans pilier</span>.&nbsp;»</p>
@@ -588,7 +603,7 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
         <div class="chief rv d2"><div class="chief-dot">4</div><div class="chief-name">Nanan Kondon Koffi</div><div class="chief-meta">Quatrième Chef du village</div></div>
         <div class="chief rv d3"><div class="chief-dot">5</div><div class="chief-name">Nanan Kouadio Kouassi</div><div class="chief-meta">1976 – 2012</div></div>
         <div class="chief rv d3"><div class="chief-dot">6</div><div class="chief-name">Nanan N'Doly Amlan II</div><div class="chief-meta">2015 – 2019</div></div>
-        <div class="chief cur rv d4"><div class="chief-dot cur">7</div><div class="chief-name">Nanan Assamoi Konan II</div><div class="chief-meta">Intronisé le 26 Décembre 2025</div><span class="chief-badge">Chef actuel · Esprit Nouveau ✦</span></div>
+        <div class="chief cur rv d4"><div class="chief-dot cur">7</div><div class="chief-name">Nanan Assamoi Konan II</div><div class="chief-meta">Arrêté 26 déc. 2025 · Intronisé le 25 avril 2026</div><span class="chief-badge">Chef actuel · Esprit Nouveau ✦</span></div>
       </div>
     </div>
   </div>
@@ -601,12 +616,32 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
   <div class="sym" data-speed="-13" style="bottom:16%;left:5%;width:100px;height:100px"><svg viewBox="0 0 48 48"><use href="#s-star"/></svg></div>
   <div class="inner">
     <div class="intro-head rv">
-      <div class="intro-date" style="justify-content:center"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>26 Décembre 2025 — Village de Kadjokro</div>
-      <div class="eyebrow" style="justify-content:center">Moment historique</div>
-      <h2>Cérémonie <span class="it">d'intronisation</span></h2>
-      <p class="intro-lead">Après <strong>six longues années d'attente</strong>, le village a vécu un moment solennel : l'intronisation de son septième chef, Nanan Assamoi Konan 2 — couronné selon la coutume, tabouret sacré et sceptre d'or à l'appui, devant toute la notabilité.</p>
+      <div class="eyebrow" style="justify-content:center">Le parcours du chef</div>
+      <h2>De l'arrêté à <span class="it">l'intronisation</span></h2>
+      <p class="intro-lead">Après <strong>six longues années d'attente</strong>, Nanan Assamoi Konan 2 accède à la chefferie en deux temps : la reconnaissance officielle par les autorités, puis le couronnement traditionnel devant toute la notabilité.</p>
     </div>
-    <p class="intro-lead rv" style="text-align:center;font-family:var(--disp);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-l);margin-top:26px">Faites défiler — la cérémonie se dévoile acte après acte ↓</p>
+    <div class="milestones rv">
+      <div class="ms-card">
+        <div class="ms-photo" style="background-image:url('img/arrete-remise.jpg')"></div>
+        <div class="ms-body">
+          <span class="ms-step">Étape 1 · Officielle</span>
+          <div class="ms-date">26 décembre 2025</div>
+          <div class="ms-t">Remise de l'arrêté</div>
+          <div class="ms-d">Reconnaissance par les autorités préfectorales : le sous-préfet, en tenue, remet l'arrêté au chef devant la communauté.</div>
+        </div>
+      </div>
+      <a class="ms-card" href="#acts">
+        <div class="ms-photo" style="background-image:url('img/couronnement.jpg')"></div>
+        <div class="ms-body">
+          <span class="ms-step">Étape 2 · Traditionnelle</span>
+          <div class="ms-date">25 avril 2026</div>
+          <div class="ms-t">L'Intronisation</div>
+          <div class="ms-d">Couronnement selon la coutume, tabouret sacré et sceptre d'or, devant les rois voisins et toute la notabilité.</div>
+          <span class="ms-arrow">Découvrir la cérémonie <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
+        </div>
+      </a>
+    </div>
+    <p class="intro-lead rv" style="text-align:center;font-family:var(--disp);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-l);margin-top:34px">La cérémonie d'intronisation, acte après acte ↓</p>
   </div>
 </section>
 
@@ -683,6 +718,9 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
       <figure><img src="img/tabouret-or.jpg" alt="Le tabouret sacré" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
       <figure><img src="img/salle-reception.jpg" alt="Réception à la résidence" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
       <figure><img src="img/villageois.jpg" alt="Les villageois rassemblés" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/arrete-remise.jpg" alt="Remise de l'arrêté au chef par les autorités" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/arrete-autorites.jpg" alt="Les autorités préfectorales et le chef" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
+      <figure><img src="img/sous-prefet.jpg" alt="Le sous-préfet en tenue lors de la cérémonie" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span></figure>
     </div>
   </div>
 </section>
@@ -693,7 +731,7 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
   <button class="lb-btn lb-prev" aria-label="Précédent"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
   <button class="lb-btn lb-next" aria-label="Suivant"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
   <img src="" alt="Photo de l'intronisation agrandie">
-  <div class="lb-cap">Village de Kadjokro · Intronisation 2025</div>
+  <div class="lb-cap">Village de Kadjokro · Intronisation 2026</div>
 </div>
 
 <div class="kente"></div>
@@ -724,7 +762,7 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
         <div class="bio-body">
           <p>Nanan Assamoi Konan 2, N'Dri N'Guessan Eugène à l'état civil, est issu de la grande famille N'Godo Ossou. Son père, feu N'Goran N'Dri dit Bozia, Ancien Combattant de la Légion française, lui a inculqué les valeurs de respect, de dignité et de cohésion sociale.</p>
           <p>Après un brillant parcours (BAC scientifique au Lycée Moderne de Dimbokro) et une Maîtrise en Sciences Économiques spécialisée en GRH et Économie Pétrolière, il bâtit une carrière exemplaire au sein des groupes <strong>BP, ELF/TOTAL</strong> et <strong>PETROCI</strong>, où il finit Chef de Service Gaz Naturel.</p>
-          <p>Profondément attaché à sa communauté, il fonde la Compagnie culturelle <em>« Tam Tam »</em>, crée en 2008 le <strong>Comité Local Croix-Rouge de Toumodi</strong> et sert comme Conseiller Municipal. Officiellement intronisé le <strong>26 décembre 2025</strong>.</p>
+          <p>Profondément attaché à sa communauté, il fonde la Compagnie culturelle <em>« Tam Tam »</em>, crée en 2008 le <strong>Comité Local Croix-Rouge de Toumodi</strong> et sert comme Conseiller Municipal. Reconnu chef par arrêté préfectoral le <strong>26 décembre 2025</strong>, il est officiellement intronisé le <strong>25 avril 2026</strong>.</p>
         </div>
         <div class="bio-pull">
           <p>«&nbsp;Les pieds dans la tradition et la tête dans le modernisme.&nbsp;»</p>
