@@ -8,427 +8,424 @@
 <link rel="canonical" href="https://kadjokro.netlify.app/">
 <meta property="og:title" content="Village de Kadjokro — Esprit Nouveau">
 <meta property="og:description" content="Histoire, traditions et avenir du village de Kadjokro, Côte d'Ivoire.">
-<meta property="og:image" content="img/image5.png">
-<meta name="theme-color" content="#1b3d20">
+<meta property="og:image" content="img/image1.jpg">
+<meta name="theme-color" content="#12261a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
 <style>
-/* ══ TOKENS ══ */
+/* ══════════ TOKENS ══════════ */
 :root{
-  --forest:#1b3d20; --forest-d:#0e2013; --forest-m:#2a5c33;
-  --gold:#c8922a; --gold-l:#e8c87d; --gold-d:#9a6e18;
-  --terra:#8b3a15; --cream:#f4efe3; --cream-d:#e8e0cf;
-  --text:#1a1208; --muted:#6b6050; --line:rgba(200,146,42,.22);
-  --disp:'Montserrat',sans-serif; --body:'Open Sans',sans-serif;
-  --ease:cubic-bezier(.22,1,.36,1);
+  --forest:#12261a; --forest-2:#1c3d29; --forest-d:#0a1710;
+  --gold:#c8922a; --gold-l:#e6c680; --gold-d:#9a6e18;
+  --terra:#8b3a15; --terra-l:#c05a2a;
+  --cream:#f5efe1; --cream-2:#ebe2ce;
+  --ink:#160f06;
+  --disp:'Montserrat',sans-serif;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --body:'Open Sans',sans-serif;
+  --ease:cubic-bezier(.19,1,.22,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:var(--body);color:var(--text);background:var(--cream);overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);color:var(--ink);background:var(--forest-d);overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-em{font-style:italic;color:var(--gold)}
+::selection{background:var(--gold);color:var(--forest-d)}
 
-/* ══ KENTE BAR ══ */
-.kente{height:7px;background:repeating-linear-gradient(90deg,var(--forest) 0 30%,var(--gold) 30% 50%,var(--terra) 50% 70%,var(--forest-d) 70% 100%)}
+/* Kente stripe */
+.kente{height:8px;background:repeating-linear-gradient(90deg,var(--forest-2) 0 26%,var(--gold) 26% 42%,var(--terra) 42% 58%,var(--forest-d) 58% 74%,var(--gold-d) 74% 100%);position:relative;z-index:5}
 
-/* ══ SPLASH ══ */
-#splash{
-  position:fixed;inset:0;z-index:1000;
-  background:var(--forest-d);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
-  transition:opacity .6s var(--ease),visibility .6s;
-}
+/* ══════════ SPLASH ══════════ */
+#splash{position:fixed;inset:0;z-index:2000;background:var(--forest-d);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .7s var(--ease),visibility .7s}
 #splash.gone{opacity:0;visibility:hidden;pointer-events:none}
-.sp-diamond{width:56px;height:56px;background:var(--gold);transform:rotate(45deg);margin-bottom:8px;position:relative}
-.sp-diamond::after{content:'K';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:rotate(-45deg);font-family:var(--disp);font-weight:900;font-size:1.4rem;color:var(--forest-d)}
-.sp-name{font-family:var(--disp);font-size:clamp(2.2rem,7vw,4.5rem);font-weight:900;letter-spacing:.1em;color:#fff;text-transform:uppercase}
-.sp-sub{font-family:var(--disp);font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-l);opacity:.8}
-.sp-bar{width:0;height:2px;background:var(--gold);border-radius:2px;animation:spbar 1s var(--ease) .3s forwards}
-@keyframes spbar{to{width:120px}}
+.sp-diamond{width:60px;height:60px;background:var(--gold);transform:rotate(45deg);position:relative;animation:spin-in 1s var(--ease)}
+.sp-diamond::after{content:'K';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:rotate(-45deg);font-family:var(--disp);font-weight:900;font-size:1.5rem;color:var(--forest-d)}
+.sp-name{font-family:var(--serif);font-style:italic;font-size:clamp(2.4rem,8vw,4rem);font-weight:500;letter-spacing:.02em;color:#fff}
+.sp-sub{font-family:var(--disp);font-size:.66rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-l)}
+.sp-bar{width:0;height:2px;background:var(--gold);animation:spbar 1.1s var(--ease) .3s forwards}
+@keyframes spbar{to{width:130px}}
+@keyframes spin-in{from{transform:rotate(-90deg) scale(.4);opacity:0}to{transform:rotate(45deg) scale(1);opacity:1}}
 
-/* ══ NAV ══ */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  height:64px;padding:0 40px;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(14,32,19,.9);backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(200,146,42,.18);
-  transition:background .3s;
-}
-.nav-brand{display:flex;align-items:center;gap:12px;font-family:var(--disp);font-weight:800;font-size:1rem;color:#fff;letter-spacing:.06em}
-.nav-gem{width:10px;height:10px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
-.nav-links{display:flex;gap:26px;align-items:center}
-.nav-links a{font-family:var(--disp);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);transition:color .2s}
-.nav-links a:hover{color:var(--gold-l)}
-.nav-cta{background:var(--gold) !important;color:var(--forest-d) !important;padding:8px 18px;border-radius:6px;font-weight:700 !important}
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
-.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+/* ══════════ NAV ══════════ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 clamp(20px,5vw,52px);display:flex;align-items:center;justify-content:space-between;transition:background .4s,backdrop-filter .4s,height .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(10,23,16,.82);backdrop-filter:blur(16px);height:60px;border-bottom-color:rgba(200,146,42,.2)}
+.nav-brand{display:flex;align-items:center;gap:12px;font-family:var(--disp);font-weight:800;font-size:1rem;color:#fff;letter-spacing:.08em}
+.nav-gem{width:11px;height:11px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-family:var(--disp);font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:var(--gold);transition:width .3s var(--ease)}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--gold) !important;color:var(--forest-d) !important;padding:9px 18px;border-radius:4px;font-weight:700 !important}
+.nav-cta::after{display:none}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:26px;height:2px;background:#fff;border-radius:2px}
 
-/* ══ MOBILE OVERLAY ══ */
-.mob{position:fixed;inset:0;z-index:200;background:var(--forest-d);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transform:translateX(100%);transition:transform .4s var(--ease)}
+.mob{position:fixed;inset:0;z-index:200;background:var(--forest-d);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transform:translateX(100%);transition:transform .5s var(--ease)}
 .mob.open{transform:none}
-.mob-close{position:absolute;top:22px;right:28px;background:none;border:none;color:#fff;cursor:pointer}
-.mob-link{font-family:var(--disp);font-size:1.3rem;font-weight:700;color:#fff;letter-spacing:.04em;transition:color .2s}
+.mob::before{content:'KADJOKRO';position:absolute;font-family:var(--disp);font-weight:900;font-size:24vw;color:rgba(255,255,255,.03);white-space:nowrap;pointer-events:none}
+.mob-close{position:absolute;top:24px;right:28px;background:none;border:none;color:#fff;cursor:pointer}
+.mob-link{font-family:var(--serif);font-style:italic;font-size:2rem;font-weight:500;color:#fff;transition:color .2s;position:relative;z-index:1}
 .mob-link:hover{color:var(--gold-l)}
 
-/* ══ HERO ══ */
-#hero{
-  height:100vh;min-height:640px;
-  display:grid;align-items:end;
-  padding:90px 6vw 80px;
-  position:relative;overflow:hidden;
-  background:var(--forest-d);
-}
-.hero-bg{
-  position:absolute;inset:0;
-  background:url('img/image5.png') center 20%/cover no-repeat;
-  transform:scale(1.05);
-  transition:transform 8s ease-out;
-  filter:brightness(.35) saturate(1.2);
-}
-.hero-bg.loaded{transform:scale(1)}
-.hero-pattern{
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(14,32,19,.97) 0%,rgba(14,32,19,.55) 45%,rgba(0,0,0,.8) 100%);
-}
-/* kente corner deco */
-.hero-kente-l{position:absolute;left:0;top:0;bottom:0;width:6px;background:repeating-linear-gradient(180deg,var(--forest-m) 0 20%,var(--gold) 20% 40%,var(--terra) 40% 60%,var(--forest-d) 60% 80%,var(--gold-d) 80% 100%)}
-.hero-in{position:relative;z-index:2;max-width:900px}
-.hero-eye{
-  font-family:var(--disp);font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--gold-l);margin-bottom:22px;display:inline-flex;align-items:center;gap:12px;
-  opacity:0;animation:fadeup .8s var(--ease) 1.5s forwards;
-}
-.hero-eye::before{content:'✦';font-size:.8em}
-.hero-h1{
-  font-family:var(--disp);font-size:clamp(3.2rem,9vw,6.8rem);font-weight:900;
-  line-height:1;color:#fff;margin-bottom:18px;
-  opacity:0;animation:fadeup .8s var(--ease) 1.7s forwards;
-}
-.hero-h1 .accent{display:block;font-style:italic;color:var(--gold-l);font-size:.6em;font-weight:700;letter-spacing:.02em;margin-top:4px}
-.hero-sub{
-  font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,.72);max-width:520px;margin-bottom:40px;
-  opacity:0;animation:fadeup .8s var(--ease) 1.9s forwards;
-}
-.hero-badges{
-  display:flex;gap:12px;flex-wrap:wrap;
-  opacity:0;animation:fadeup .8s var(--ease) 2.1s forwards;
-}
-.hero-badge{background:rgba(255,255,255,.08);border:1px solid rgba(200,146,42,.35);color:var(--gold-l);font-family:var(--disp);font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px;border-radius:100px;backdrop-filter:blur(4px)}
-.hero-scroll{position:absolute;bottom:36px;right:6vw;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.4);font-family:var(--disp);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;animation:fadeup 1s var(--ease) 2.5s both}
-.hero-arrow{width:22px;height:22px;border-right:2px solid rgba(255,255,255,.35);border-bottom:2px solid rgba(255,255,255,.35);transform:rotate(45deg);animation:bounce 1.6s ease infinite}
-@keyframes fadeup{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(7px)}}
+/* ══════════ HERO ══════════ */
+#hero{height:100svh;min-height:600px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:0 clamp(20px,5vw,52px) clamp(60px,9vh,110px)}
+.hero-photo{position:absolute;inset:0;background:url('img/image1.jpg') center 22%/cover no-repeat;transform:scale(1.12);animation:kenburns 16s ease-out forwards}
+@keyframes kenburns{to{transform:scale(1)}}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,23,16,.72) 0%,rgba(10,23,16,.15) 32%,rgba(10,23,16,.55) 70%,rgba(10,23,16,.95) 100%)}
+.hero-scrim2{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,23,16,.75) 0%,transparent 55%)}
+.hero-in{position:relative;z-index:3;max-width:1000px;width:100%}
+.hero-kicker{display:inline-flex;align-items:center;gap:14px;font-family:var(--disp);font-size:.64rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-l);margin-bottom:24px;opacity:0;animation:up .9s var(--ease) 1.4s forwards}
+.hero-kicker::before{content:'';width:34px;height:1.5px;background:var(--gold)}
+.hero-title{font-family:var(--disp);font-weight:900;font-size:clamp(3.4rem,13vw,9rem);line-height:.92;color:#fff;letter-spacing:-.01em;text-shadow:0 6px 40px rgba(0,0,0,.4)}
+.hero-title .ln{display:block;overflow:hidden}
+.hero-title .ln span{display:block;transform:translateY(105%);animation:reveal 1.1s var(--ease) forwards}
+.hero-title .ln:nth-child(1) span{animation-delay:1.55s}
+.hero-serif{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.6rem,5vw,3rem);color:var(--gold-l);margin-top:10px;overflow:hidden}
+.hero-serif span{display:block;transform:translateY(105%);animation:reveal 1.1s var(--ease) 1.85s forwards}
+@keyframes reveal{to{transform:none}}
+.hero-desc{font-size:1.02rem;line-height:1.75;color:rgba(255,255,255,.82);max-width:480px;margin-top:26px;opacity:0;animation:up .9s var(--ease) 2.2s forwards}
+.hero-cta-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px;opacity:0;animation:up .9s var(--ease) 2.4s forwards}
+.btn-gold{background:var(--gold);color:var(--forest-d);font-family:var(--disp);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:15px 30px;border-radius:4px;transition:transform .25s var(--ease),background .25s;display:inline-flex;align-items:center;gap:10px}
+.btn-gold:hover{background:var(--gold-l);transform:translateY(-3px)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff;font-family:var(--disp);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:15px 30px;border-radius:4px;transition:border-color .25s,background .25s;display:inline-flex;align-items:center;gap:10px}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(200,146,42,.12)}
+.hero-vtag{position:absolute;right:clamp(18px,4vw,44px);top:50%;transform:translateY(-50%) rotate(90deg);transform-origin:right center;font-family:var(--disp);font-size:.6rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.55);z-index:3;display:flex;align-items:center;gap:14px}
+.hero-vtag::after{content:'';width:60px;height:1px;background:rgba(255,255,255,.35)}
+@keyframes up{to{opacity:1;transform:none}}
 
-/* ══ SECTIONS ══ */
-.sec{padding:110px 6vw}
-.sec.bg-forest{background:var(--forest);color:#fff}
-.sec.bg-dark{background:var(--forest-d);color:#fff}
-.sec.bg-cream{background:var(--cream)}
-.sec.bg-cream-d{background:var(--cream-d)}
-.inner{max-width:1180px;margin:0 auto}
-.section-head{margin-bottom:72px}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-size:.66rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
-.eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--gold);border-radius:2px}
-h2{font-family:var(--disp);font-size:clamp(2.1rem,5vw,3.4rem);font-weight:800;line-height:1.12}
-.lead{font-size:1.05rem;line-height:1.85;margin-top:18px;max-width:680px;opacity:.75}
+/* ══════════ MARQUEE ══════════ */
+.marquee{background:var(--forest-d);overflow:hidden;padding:18px 0;border-top:1px solid rgba(200,146,42,.15);border-bottom:1px solid rgba(200,146,42,.15)}
+.marquee-track{display:flex;gap:44px;white-space:nowrap;width:max-content;animation:scroll-x 28s linear infinite}
+.marquee-track span{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:rgba(255,255,255,.5);display:inline-flex;align-items:center;gap:44px}
+.marquee-track span::after{content:'✦';color:var(--gold);font-style:normal}
+@keyframes scroll-x{to{transform:translateX(-50%)}}
 
-/* ══ REVEALS ══ */
-.rv{opacity:0;transform:translateY(44px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+/* ══════════ SECTION SHELL ══════════ */
+.sec{position:relative;padding:clamp(80px,11vh,140px) clamp(20px,5vw,52px)}
+.inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--disp);font-size:.64rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.eyebrow::before{content:'';width:28px;height:1.5px;background:var(--gold)}
+.eyebrow.light{color:var(--gold-l)}
+h2{font-family:var(--disp);font-weight:800;font-size:clamp(2rem,5vw,3.6rem);line-height:1.08;letter-spacing:-.01em}
+h2 .it{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--gold)}
+h2.on-photo{color:#fff}
+h2.on-photo .it{color:var(--gold-l)}
+.lead{font-size:1.04rem;line-height:1.85;margin-top:20px;max-width:640px}
+
+/* ══════════ REVEALS ══════════ */
+.rv{opacity:0;transform:translateY(46px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.on{opacity:1;transform:none}
-.rl{opacity:0;transform:translateX(-52px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.rl{opacity:0;transform:translateX(-56px);transition:all .9s var(--ease)}
 .rl.on{opacity:1;transform:none}
-.rr{opacity:0;transform:translateX(52px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.rr{opacity:0;transform:translateX(56px);transition:all .9s var(--ease)}
 .rr.on{opacity:1;transform:none}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
+.clip{clip-path:inset(0 100% 0 0);transition:clip-path 1.1s var(--ease)}
+.clip.on{clip-path:inset(0 0 0 0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}.d4{transition-delay:.38s}.d5{transition-delay:.48s}.d6{transition-delay:.58s}
 
-/* ══ STATS ══ */
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:64px}
-.stat{background:rgba(200,146,42,.04);padding:40px 24px;text-align:center;transition:background .2s}
-.stat:hover{background:rgba(200,146,42,.08)}
-.stat-n{font-family:var(--disp);font-size:2.8rem;font-weight:900;color:var(--gold);line-height:1}
-.stat-l{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:6px;font-family:var(--disp)}
+/* ══════════ FULL-BLEED PHOTO SECTION ══════════ */
+.photo-sec{position:relative;overflow:hidden}
+.photo-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
+@media(min-width:1025px){.photo-bg.fixed{background-attachment:fixed}}
+.photo-ov{position:absolute;inset:0;z-index:1}
 
-/* ══ DÉCOUVERTE GRID ══ */
-.disc-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.disc-cards{display:flex;flex-direction:column;gap:18px}
-.disc-card{background:#fff;border-radius:14px;padding:22px 24px;border:1px solid var(--cream-d);display:flex;gap:18px;align-items:flex-start;transition:box-shadow .3s,transform .3s}
-.disc-card:hover{box-shadow:0 8px 32px rgba(27,61,32,.1);transform:translateX(6px)}
-.disc-icon{width:44px;height:44px;border-radius:11px;background:rgba(27,61,32,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.disc-icon svg{width:20px;height:20px;stroke:var(--forest);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.disc-title{font-family:var(--disp);font-weight:700;font-size:.9rem;margin-bottom:4px}
-.disc-text{font-size:.82rem;color:var(--muted);line-height:1.65}
-.disc-photo{border-radius:20px;overflow:hidden;position:relative;box-shadow:0 24px 80px rgba(27,61,32,.18)}
-.disc-photo img{width:100%;height:480px;object-fit:cover;object-position:top;transition:transform 5s ease}
-.disc-photo:hover img{transform:scale(1.04)}
-.disc-photo-label{position:absolute;bottom:0;left:0;right:0;padding:24px 22px;background:linear-gradient(0deg,rgba(10,22,14,.9) 0%,transparent 100%)}
-.disc-photo-label .name{font-family:var(--disp);font-weight:700;color:#fff;font-size:.95rem}
-.disc-photo-label .sub{font-size:.72rem;color:var(--gold-l);margin-top:2px}
+/* ══════════ DÉCOUVERTE ══════════ */
+#decouverte{background:var(--cream)}
+.disc-wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.disc-figure{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 40px 90px rgba(18,38,26,.28)}
+.disc-figure img{width:100%;height:min(70vh,600px);object-fit:cover;object-position:center 30%;transition:transform 6s var(--ease)}
+.disc-figure:hover img{transform:scale(1.05)}
+.disc-figure .cap{position:absolute;left:0;bottom:0;right:0;padding:30px 26px;background:linear-gradient(0deg,rgba(10,23,16,.92),transparent);color:#fff}
+.disc-figure .cap b{font-family:var(--serif);font-style:italic;font-size:1.5rem;font-weight:500;display:block}
+.disc-figure .cap small{font-family:var(--disp);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l)}
+.disc-figure .frnum{position:absolute;top:20px;left:22px;font-family:var(--serif);font-style:italic;font-size:2.6rem;color:rgba(255,255,255,.9);text-shadow:0 2px 20px rgba(0,0,0,.5)}
+.disc-list{display:flex;flex-direction:column;gap:4px;margin-top:30px}
+.disc-item{display:flex;gap:20px;padding:20px 0;border-top:1px solid var(--cream-2)}
+.disc-item:last-child{border-bottom:1px solid var(--cream-2)}
+.disc-ico{width:46px;height:46px;flex-shrink:0;border-radius:11px;background:var(--forest);display:flex;align-items:center;justify-content:center}
+.disc-ico svg{width:20px;height:20px;stroke:var(--gold-l);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.disc-item h4{font-family:var(--disp);font-weight:700;font-size:.95rem;color:var(--forest)}
+.disc-item p{font-size:.85rem;color:#6b6050;line-height:1.65;margin-top:4px}
+.disc-item strong{color:var(--terra)}
 
-/* ══ FAMILLES ══ */
-.fam-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:52px}
-.fam-card{background:#fff;border-radius:18px;padding:38px 30px;border:1px solid var(--cream-d);position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s}
-.fam-card:hover{transform:translateY(-8px);box-shadow:0 24px 64px rgba(27,61,32,.13)}
-.fam-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px}
-.fam-card.c1::before{background:linear-gradient(90deg,var(--forest),var(--gold))}
-.fam-card.c2::before{background:linear-gradient(90deg,var(--gold),var(--gold-l))}
-.fam-card.c3::before{background:linear-gradient(90deg,var(--terra),var(--gold))}
-.fam-card.c4::before{background:linear-gradient(90deg,var(--forest-d),var(--forest))}
-.fam-card::after{content:attr(data-n);position:absolute;bottom:-20px;right:12px;font-family:var(--disp);font-size:6rem;font-weight:900;color:rgba(27,61,32,.04);line-height:1;pointer-events:none}
-.fam-num{font-family:var(--disp);font-size:.62rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.fam-name{font-family:var(--disp);font-size:1.35rem;font-weight:900;color:var(--forest);line-height:1.15}
-.fam-name span{display:block;color:var(--gold);font-size:.85em;font-weight:700;margin-top:2px}
-.fam-desc{font-size:.83rem;color:var(--muted);line-height:1.7;margin-top:12px}
-.fam-badge{display:inline-block;margin-top:14px;padding:4px 12px;border-radius:100px;font-family:var(--disp);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.fam-badge.chief{background:var(--forest);color:#fff}
-.fam-badge.reg{background:var(--cream-d);color:var(--muted)}
-.fam-proverb{margin-top:40px;padding:26px 28px;background:var(--forest);border-radius:14px;display:flex;gap:16px;align-items:center}
-.fam-proverb svg{width:28px;height:28px;stroke:var(--gold-l);stroke-width:1.8;fill:none;flex-shrink:0}
-.fam-proverb p{font-family:var(--disp);font-size:.88rem;font-weight:600;color:#fff;line-height:1.6;font-style:italic}
-.fam-proverb cite{display:block;margin-top:6px;font-size:.68rem;color:var(--gold-l);font-style:normal;letter-spacing:.1em;text-transform:uppercase}
+/* ══════════ STATS BAND (on photo) ══════════ */
+#stats{background:var(--forest-d)}
+#stats .photo-bg{background-image:url('img/image7.jpg');background-position:center 35%}
+#stats .photo-ov{background:linear-gradient(180deg,rgba(10,23,16,.82),rgba(10,23,16,.88)),radial-gradient(circle at 50% 0,rgba(200,146,42,.14),transparent 60%)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,3vw,40px);text-align:center}
+.stat{position:relative;padding:12px}
+.stat:not(:last-child)::after{content:'';position:absolute;right:calc(-1 * clamp(8px,1.5vw,20px));top:20%;bottom:20%;width:1px;background:rgba(200,146,42,.25)}
+.stat-n{font-family:var(--serif);font-weight:600;font-size:clamp(3rem,7vw,5rem);line-height:1;color:var(--gold-l)}
+.stat-l{font-family:var(--disp);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:10px}
 
-/* ══ CHIEFS TIMELINE ══ */
-.timeline{position:relative;margin-top:60px;padding-left:56px}
-.timeline::before{content:'';position:absolute;left:19px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--gold) 0%,rgba(200,146,42,.1) 100%)}
-.chief-row{position:relative;margin-bottom:44px;display:flex;flex-direction:column;gap:6px}
-.chief-dot{position:absolute;left:-56px;top:0;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.06);border:2px solid rgba(200,146,42,.3);display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-size:.7rem;font-weight:800;color:rgba(200,146,42,.7);z-index:1}
-.chief-dot.cur{background:var(--gold);border-color:var(--gold);color:var(--forest-d)}
-.chief-name{font-family:var(--disp);font-size:1.1rem;font-weight:700;color:#fff}
-.chief-name.cur{color:var(--gold-l);font-size:1.25rem}
-.chief-period{font-size:.78rem;color:rgba(255,255,255,.4);font-family:var(--disp);letter-spacing:.04em}
-.chief-tag{display:inline-block;margin-top:6px;padding:3px 10px;border-radius:100px;font-family:var(--disp);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.chief-tag.reg{background:rgba(255,255,255,.06);color:rgba(255,255,255,.5)}
-.chief-tag.cur{background:rgba(200,146,42,.2);color:var(--gold-l);border:1px solid rgba(200,146,42,.3)}
+/* ══════════ FAMILLES (on photo) ══════════ */
+#familles{background:var(--forest)}
+#familles .photo-bg{background-image:url('img/image4.png');background-position:center 25%;filter:saturate(1.05)}
+#familles .photo-ov{background:linear-gradient(135deg,rgba(10,23,16,.96) 0%,rgba(10,23,16,.8) 50%,rgba(18,38,26,.92) 100%)}
+.fam-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:52px}
+.fam-card{position:relative;padding:34px 30px;border-radius:8px;background:rgba(255,255,255,.045);border:1px solid rgba(200,146,42,.2);backdrop-filter:blur(6px);overflow:hidden;transition:transform .4s var(--ease),background .4s,border-color .4s}
+.fam-card:hover{transform:translateY(-8px);background:rgba(255,255,255,.08);border-color:rgba(200,146,42,.5)}
+.fam-card .big{position:absolute;top:-14px;right:14px;font-family:var(--serif);font-style:italic;font-size:6.5rem;color:rgba(200,146,42,.12);pointer-events:none;line-height:1}
+.fam-num{font-family:var(--disp);font-size:.6rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.fam-name{font-family:var(--disp);font-size:1.4rem;font-weight:900;color:#fff;line-height:1.1}
+.fam-name span{display:block;font-family:var(--serif);font-style:italic;font-weight:500;font-size:.82em;color:var(--gold-l);margin-top:2px}
+.fam-desc{font-size:.85rem;color:rgba(255,255,255,.62);line-height:1.7;margin-top:14px}
+.fam-tag{display:inline-block;margin-top:16px;padding:5px 13px;border-radius:100px;font-family:var(--disp);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.fam-tag.chief{background:var(--gold);color:var(--forest-d)}
+.fam-tag.reg{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15)}
+.proverb{margin-top:44px;text-align:center;padding:0 6%}
+.proverb p{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,4vw,2.4rem);font-weight:500;color:#fff;line-height:1.4}
+.proverb p .q{color:var(--gold)}
+.proverb cite{display:block;margin-top:16px;font-family:var(--disp);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-l);font-style:normal}
 
-/* ══ INTRONISATION ══ */
-.intro-split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.intro-mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:280px 200px;gap:12px}
-.intro-mosaic img{width:100%;height:100%;object-fit:cover;border-radius:12px;transition:transform .4s var(--ease)}
-.intro-mosaic img:hover{transform:scale(1.03)}
-.intro-mosaic img:first-child{grid-column:1/-1;border-radius:16px}
-.intro-date-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(200,146,42,.15);border:1px solid rgba(200,146,42,.3);color:var(--gold-l);font-family:var(--disp);font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:8px 16px;border-radius:100px;margin-bottom:22px}
-.intro-date-badge svg{width:14px;height:14px;stroke:var(--gold-l);stroke-width:2;fill:none}
-.intro-quote{margin:24px 0;padding:22px 26px;border-left:4px solid var(--gold);background:rgba(200,146,42,.06);border-radius:0 12px 12px 0}
-.intro-quote p{font-size:.95rem;font-style:italic;line-height:1.75;color:rgba(255,255,255,.8)}
-.intro-quote cite{display:block;margin-top:8px;font-size:.68rem;font-family:var(--disp);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-style:normal}
-.prog-list{display:flex;flex-direction:column;gap:10px;margin-top:24px}
-.prog-item{display:flex;gap:12px;align-items:flex-start}
-.prog-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0}
-.prog-t{font-size:.85rem;line-height:1.6;color:rgba(255,255,255,.72)}
+/* ══════════ CHEFS (parallax photo) ══════════ */
+#chefs{background:var(--forest-d)}
+#chefs .photo-bg{background-image:url('img/image10.png');background-position:center 20%}
+#chefs .photo-ov{background:linear-gradient(90deg,rgba(10,23,16,.97) 0%,rgba(10,23,16,.82) 44%,rgba(10,23,16,.4) 100%)}
+.chefs-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:center}
+.timeline{position:relative;padding-left:52px}
+.timeline::before{content:'';position:absolute;left:17px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--gold),rgba(200,146,42,.08))}
+.chief{position:relative;margin-bottom:34px}
+.chief-dot{position:absolute;left:-52px;top:-2px;width:36px;height:36px;border-radius:50%;background:var(--forest);border:2px solid rgba(200,146,42,.35);display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-size:.7rem;font-weight:800;color:rgba(200,146,42,.7)}
+.chief-dot.cur{background:var(--gold);border-color:var(--gold);color:var(--forest-d);box-shadow:0 0 0 6px rgba(200,146,42,.2)}
+.chief-name{font-family:var(--disp);font-size:1.05rem;font-weight:700;color:#fff}
+.chief.cur .chief-name{font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.5rem;color:var(--gold-l)}
+.chief-meta{font-size:.76rem;color:rgba(255,255,255,.45);font-family:var(--disp);letter-spacing:.03em;margin-top:3px}
+.chief-badge{display:inline-block;margin-top:8px;padding:4px 12px;border-radius:100px;background:rgba(200,146,42,.16);border:1px solid rgba(200,146,42,.35);font-family:var(--disp);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-l)}
 
-/* ══ BIOGRAPHIE ══ */
-.bio-split{display:grid;grid-template-columns:320px 1fr;gap:64px;align-items:start}
-.bio-frame{border-radius:20px;overflow:hidden;position:relative;box-shadow:0 32px 80px rgba(10,20,12,.25)}
-.bio-frame img{width:100%;height:440px;object-fit:cover;object-position:top}
-.bio-frame-badge{position:absolute;bottom:0;left:0;right:0;padding:18px 20px;background:linear-gradient(0deg,rgba(10,22,14,.95),transparent);border-radius:0 0 20px 20px}
-.bio-frame-name{font-family:var(--disp);font-weight:800;color:#fff;font-size:.95rem}
-.bio-frame-role{font-size:.7rem;color:var(--gold-l);font-family:var(--disp);margin-top:2px}
-.bio-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
-.chip{background:var(--cream-d);color:var(--forest);font-family:var(--disp);font-size:.65rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:100px;border:1px solid rgba(27,61,32,.12)}
-.bio-text p{font-size:.93rem;line-height:1.85;color:var(--text);margin-bottom:14px}
-.bio-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
-.bio-card{padding:16px 20px;background:var(--cream-d);border-radius:12px;border:1px solid rgba(27,61,32,.1)}
-.bio-card-label{font-family:var(--disp);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.bio-card-val{font-size:.82rem;color:var(--text);line-height:1.7}
+/* ══════════ INTRONISATION (photo) ══════════ */
+#intronisation{background:var(--forest)}
+#intronisation .photo-bg{background-image:url('img/image6.png');background-position:center 25%}
+#intronisation .photo-ov{background:linear-gradient(180deg,rgba(10,23,16,.9),rgba(18,38,26,.92))}
+.intro-head{text-align:center;max-width:760px;margin:0 auto 56px}
+.intro-date{display:inline-flex;align-items:center;gap:12px;background:rgba(200,146,42,.15);border:1px solid rgba(200,146,42,.35);color:var(--gold-l);font-family:var(--disp);font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:9px 18px;border-radius:100px;margin-bottom:24px}
+.intro-date svg{width:14px;height:14px;stroke:var(--gold-l);stroke-width:2;fill:none}
+.intro-lead{font-size:1.05rem;line-height:1.85;color:rgba(255,255,255,.78);margin-top:20px}
+.intro-lead strong{color:#fff}
+/* editorial mosaic */
+.mosaic{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:14px;margin-bottom:40px}
+.mosaic figure{position:relative;overflow:hidden;border-radius:6px}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.mosaic figure:hover img{transform:scale(1.08)}
+.mosaic .m1{grid-column:span 3;grid-row:span 2}
+.mosaic .m2{grid-column:span 3;grid-row:span 1}
+.mosaic .m3{grid-column:span 2;grid-row:span 1}
+.mosaic .m4{grid-column:span 1;grid-row:span 1}
+.mosaic figure::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,23,16,.35),transparent 50%);opacity:0;transition:opacity .3s}
+.mosaic figure:hover::after{opacity:1}
+/* programme */
+.prog{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.prog-card{background:rgba(255,255,255,.04);border:1px solid rgba(200,146,42,.18);border-radius:8px;padding:24px 22px;transition:background .3s,transform .3s}
+.prog-card:hover{background:rgba(255,255,255,.07);transform:translateY(-4px)}
+.prog-num{font-family:var(--serif);font-style:italic;font-size:1.8rem;color:var(--gold);line-height:1}
+.prog-t{font-size:.86rem;color:rgba(255,255,255,.75);line-height:1.6;margin-top:10px}
+.prog-t strong{color:#fff}
 
-/* ══ RESSOURCES ══ */
+/* ══════════ BIOGRAPHIE (magazine) ══════════ */
+#chef{background:var(--cream)}
+.bio-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,64px);align-items:start}
+.bio-portrait{position:relative}
+.bio-portrait img{width:100%;height:min(72vh,620px);object-fit:cover;object-position:top;border-radius:6px;box-shadow:0 40px 90px rgba(18,38,26,.3)}
+.bio-portrait::before{content:'';position:absolute;inset:-14px -14px 30px 30px;border:1.5px solid var(--gold);border-radius:6px;z-index:-1}
+.bio-portrait .plabel{position:absolute;bottom:24px;left:24px;right:24px;padding:20px;background:rgba(10,23,16,.88);border-radius:6px;backdrop-filter:blur(4px)}
+.bio-portrait .plabel b{font-family:var(--serif);font-style:italic;font-size:1.4rem;font-weight:600;color:#fff;display:block}
+.bio-portrait .plabel small{font-family:var(--disp);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-l)}
+.bio-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.chip{background:#fff;color:var(--forest);font-family:var(--disp);font-size:.64rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:7px 14px;border-radius:100px;border:1px solid var(--cream-2)}
+.bio-body p{font-size:.95rem;line-height:1.9;color:var(--ink);margin-bottom:16px}
+.bio-body p:first-of-type::first-letter{font-family:var(--serif);font-style:italic;font-size:3.6rem;font-weight:600;color:var(--terra);float:left;line-height:.8;padding:6px 12px 0 0}
+.bio-body strong{color:var(--forest)}
+.bio-body em{color:var(--terra);font-style:italic}
+.bio-pull{margin:28px 0;padding:26px 30px;background:var(--forest);border-radius:8px;position:relative}
+.bio-pull p{font-family:var(--serif);font-style:italic;font-size:1.5rem;font-weight:500;color:#fff;line-height:1.4}
+.bio-pull cite{display:block;margin-top:10px;font-family:var(--disp);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l);font-style:normal}
+.bio-facts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bio-fact{padding:18px 20px;background:#fff;border-radius:8px;border:1px solid var(--cream-2)}
+.bio-fact .fl{font-family:var(--disp);font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9a8f7c;margin-bottom:8px}
+.bio-fact .fv{font-size:.84rem;color:var(--ink);line-height:1.7}
+
+/* ══════════ RESSOURCES (photo) ══════════ */
+#ressources{background:var(--forest-d)}
+#ressources .photo-bg{background-image:url('img/image7.jpg');background-position:center 40%}
+#ressources .photo-ov{background:linear-gradient(180deg,rgba(10,23,16,.9),rgba(28,61,41,.85))}
 .ress-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
-.ress-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px 22px;transition:background .25s,transform .25s}
-.ress-card:hover{background:rgba(255,255,255,.07);transform:translateY(-4px)}
-.ress-ico{width:46px;height:46px;border-radius:12px;background:rgba(200,146,42,.13);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.ress-ico svg{width:22px;height:22px;stroke:var(--gold-l);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.ress-title{font-family:var(--disp);font-weight:700;color:#fff;margin-bottom:6px}
-.ress-text{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.65}
+.ress-card{background:rgba(255,255,255,.045);border:1px solid rgba(200,146,42,.18);border-radius:8px;padding:32px 26px;transition:background .3s,transform .3s;position:relative;overflow:hidden}
+.ress-card:hover{background:rgba(255,255,255,.08);transform:translateY(-6px)}
+.ress-ico{width:52px;height:52px;border-radius:13px;background:rgba(200,146,42,.14);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.ress-ico svg{width:24px;height:24px;stroke:var(--gold-l);stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ress-title{font-family:var(--disp);font-weight:700;font-size:1.1rem;color:#fff;margin-bottom:8px}
+.ress-text{font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.7}
 
-/* ══ ITINÉRAIRE ══ */
-.itin-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-.route-block{display:flex;flex-direction:column;gap:18px}
-.route-card{background:var(--forest);border-radius:16px;padding:30px 28px}
+/* ══════════ ITINÉRAIRE ══════════ */
+#contact{background:var(--forest)}
+#contact .photo-bg{background-image:url('img/image7.jpg');background-position:center 50%}
+#contact .photo-ov{background:linear-gradient(180deg,rgba(18,38,26,.94),rgba(10,23,16,.96))}
+.itin-wrap{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:stretch}
+.route-col{display:flex;flex-direction:column;gap:18px}
+.route-card{background:rgba(255,255,255,.045);border:1px solid rgba(200,146,42,.2);border-radius:8px;padding:28px 26px}
 .route-h{font-family:var(--disp);font-weight:700;font-size:.95rem;color:var(--gold-l);margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .route-h svg{width:16px;height:16px;stroke:var(--gold);stroke-width:2;fill:none}
 .route-step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
-.route-n{width:26px;height:26px;border-radius:50%;background:rgba(200,146,42,.18);border:1px solid var(--gold);color:var(--gold-l);font-family:var(--disp);font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.route-t{font-size:.85rem;line-height:1.65;color:rgba(255,255,255,.75)}
-.map-card{background:var(--forest);border-radius:16px;padding:36px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;min-height:320px;border:1px solid rgba(200,146,42,.18);text-align:center}
-.map-card svg{width:52px;height:52px;stroke:rgba(200,146,42,.45);stroke-width:1.5;fill:none}
-.map-card-name{font-family:var(--disp);font-weight:800;color:#fff;font-size:1.05rem}
-.map-card-loc{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6}
-.map-btn{background:var(--gold);color:var(--forest-d);font-family:var(--disp);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:12px 26px;border-radius:8px;transition:background .2s,transform .2s;display:inline-block}
-.map-btn:hover{background:var(--gold-l);transform:scale(1.03)}
+.route-step:last-child{margin-bottom:0}
+.route-n{width:26px;height:26px;border-radius:50%;background:rgba(200,146,42,.16);border:1px solid var(--gold);color:var(--gold-l);font-family:var(--disp);font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.route-t{font-size:.86rem;line-height:1.65;color:rgba(255,255,255,.75)}
+.route-t strong{color:#fff}
+.map-card{background:linear-gradient(160deg,rgba(28,61,41,.9),rgba(10,23,16,.9));border:1px solid rgba(200,146,42,.3);border-radius:8px;padding:40px 30px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center}
+.map-card svg{width:54px;height:54px;stroke:var(--gold-l);stroke-width:1.4;fill:none}
+.map-name{font-family:var(--serif);font-style:italic;font-size:1.7rem;font-weight:600;color:#fff}
+.map-loc{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.75}
+.map-btn{margin-top:6px;background:var(--gold);color:var(--forest-d);font-family:var(--disp);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:4px;transition:transform .25s,background .25s;display:inline-flex;align-items:center;gap:8px}
+.map-btn:hover{background:var(--gold-l);transform:translateY(-3px)}
 
-/* ══ GALLERY SWIPE ══ */
-.gallery-swipe{margin-top:20px;overflow:hidden}
-.gallery-track{display:flex;gap:16px;cursor:grab;user-select:none;padding:4px 2px 16px;transition:transform .1s}
-.gallery-track.dragging{cursor:grabbing;transition:none}
-.gallery-track img{flex-shrink:0;width:240px;height:300px;object-fit:cover;object-position:top;border-radius:14px;pointer-events:none;border:2px solid transparent;transition:border-color .2s,transform .2s}
-.gallery-track img:hover{border-color:var(--gold);transform:scale(1.02)}
-.gallery-hint{font-family:var(--disp);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-l);opacity:.6;margin-top:8px;display:flex;align-items:center;gap:8px}
-.gallery-hint svg{width:14px;height:14px;stroke:var(--gold-l);stroke-width:2;fill:none;animation:slideh 1.5s ease infinite}
-@keyframes slideh{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
-
-/* ══ FOOTER ══ */
-footer{background:var(--forest-d);padding:72px 6vw 32px;color:rgba(255,255,255,.65)}
-.footer-in{max-width:1180px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07)}
-.footer-brand{font-family:var(--disp);font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:.06em;margin-bottom:12px}
-.footer-sub{font-size:.82rem;line-height:1.8}
-.footer-gold{color:var(--gold-l);font-style:italic;display:block;margin-top:10px}
-.footer-col h4{font-family:var(--disp);font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.footer-col a,.footer-col p{font-size:.8rem;line-height:2.1;display:block;color:rgba(255,255,255,.55);transition:color .2s}
+/* ══════════ FOOTER ══════════ */
+footer{background:var(--forest-d);padding:clamp(56px,8vh,90px) clamp(20px,5vw,52px) 32px;position:relative;overflow:hidden}
+footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transform:translateX(-50%);font-family:var(--disp);font-weight:900;font-size:22vw;color:rgba(255,255,255,.025);white-space:nowrap;pointer-events:none;line-height:1}
+.footer-in{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.footer-top{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:44px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand{font-family:var(--disp);font-weight:900;font-size:1.7rem;color:#fff;letter-spacing:.05em;margin-bottom:14px}
+.footer-sub{font-size:.85rem;line-height:1.85;color:rgba(255,255,255,.55)}
+.footer-gold{display:block;margin-top:12px;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--gold-l)}
+.footer-col h4{font-family:var(--disp);font-size:.62rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.footer-col a,.footer-col p{display:block;font-size:.82rem;line-height:2.1;color:rgba(255,255,255,.55);transition:color .2s}
 .footer-col a:hover{color:var(--gold-l)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;font-size:.72rem;flex-wrap:wrap;gap:8px}
-.footer-gem{display:flex;gap:6px;align-items:center}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;font-size:.72rem;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:10px}
+.footer-gem{display:flex;gap:7px;align-items:center;font-family:var(--disp);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l)}
 .footer-gem span{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
 
-/* ══ RESPONSIVE ══ */
+/* ══════════ RESPONSIVE ══════════ */
 @media(max-width:980px){
-  .disc-grid{grid-template-columns:1fr}
-  .intro-split{grid-template-columns:1fr}
-  .bio-split{grid-template-columns:1fr}
-  .bio-frame img{height:320px}
-  .itin-grid{grid-template-columns:1fr}
-  .stats-row{grid-template-columns:1fr 1fr}
-  .footer-top{grid-template-columns:1fr;gap:32px}
   .nav-links{display:none}
   .hamburger{display:flex}
+  .hero-vtag{display:none}
+  .disc-wrap,.chefs-wrap,.bio-wrap,.itin-wrap{grid-template-columns:1fr}
+  .chefs-wrap{gap:0}
+  .chefs-wrap .rr{display:none}
+  .bio-portrait::before{inset:-10px -10px 20px 20px}
+  .mosaic{grid-template-columns:repeat(4,1fr);grid-auto-rows:130px}
+  .mosaic .m1{grid-column:span 2;grid-row:span 2}
+  .mosaic .m2{grid-column:span 2}
+  .mosaic .m3{grid-column:span 2}
+  .mosaic .m4{grid-column:span 2}
+  .footer-top{grid-template-columns:1fr;gap:30px}
 }
 @media(max-width:640px){
-  .sec{padding:80px 5vw}
-  .fam-grid{grid-template-columns:1fr}
-  .ress-grid{grid-template-columns:1fr 1fr}
-  .bio-cards{grid-template-columns:1fr}
-  .intro-mosaic{grid-template-columns:1fr;grid-template-rows:auto}
-  .intro-mosaic img{height:220px}
-  .intro-mosaic img:first-child{height:260px}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:34px 16px}
+  .stat:nth-child(2)::after{display:none}
+  .fam-grid,.prog,.ress-grid{grid-template-columns:1fr}
+  .bio-facts{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:120px}
+  .mosaic .m1{grid-column:span 2}
 }
-@media(max-width:400px){.ress-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .hero-title .ln span,.hero-serif span{transform:none}
+  .rv,.rl,.rr{opacity:1;transform:none}
+  .clip{clip-path:none}
+  .hero-photo{transform:none}
+}
 </style>
 </head>
 <body>
 
-<!-- ══ SPLASH ══ -->
+<!-- SPLASH -->
 <div id="splash">
   <div class="sp-diamond"></div>
-  <div class="sp-name">KADJOKRO</div>
+  <div class="sp-name">Kadjokro</div>
   <div class="sp-sub">Esprit Nouveau · Côte d'Ivoire</div>
   <div class="sp-bar"></div>
 </div>
 
-<!-- ══ NAV ══ -->
-<nav class="nav">
-  <div class="nav-brand"><div class="nav-gem"></div>KADJOKRO</div>
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-brand"><span class="nav-gem"></span>KADJOKRO</div>
   <div class="nav-links">
     <a href="#decouverte">Le Village</a>
     <a href="#familles">Familles</a>
     <a href="#chefs">Chefs</a>
     <a href="#intronisation">Intronisation</a>
-    <a href="#chef">Nanan Assamoi</a>
+    <a href="#chef">Le Chef</a>
     <a href="#contact" class="nav-cta">Nous rejoindre</a>
   </div>
-  <button class="hamburger" onclick="document.getElementById('mob').classList.add('open')" aria-label="Menu">
+  <button class="hamburger" onclick="document.getElementById('mob').classList.add('open')" aria-label="Ouvrir le menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="mob" id="mob">
-  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')" aria-label="Fermer">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
   </button>
-  <a class="mob-link" href="#decouverte" onclick="document.getElementById('mob').classList.remove('open')">Le Village</a>
-  <a class="mob-link" href="#familles" onclick="document.getElementById('mob').classList.remove('open')">Les Familles</a>
-  <a class="mob-link" href="#chefs" onclick="document.getElementById('mob').classList.remove('open')">Nos Chefs</a>
-  <a class="mob-link" href="#intronisation" onclick="document.getElementById('mob').classList.remove('open')">Intronisation</a>
-  <a class="mob-link" href="#chef" onclick="document.getElementById('mob').classList.remove('open')">Nanan Assamoi Konan 2</a>
-  <a class="mob-link" href="#contact" onclick="document.getElementById('mob').classList.remove('open')">Nous rejoindre</a>
+  <a class="mob-link" href="#decouverte" onclick="closeMob()">Le Village</a>
+  <a class="mob-link" href="#familles" onclick="closeMob()">Les Familles</a>
+  <a class="mob-link" href="#chefs" onclick="closeMob()">Nos Chefs</a>
+  <a class="mob-link" href="#intronisation" onclick="closeMob()">Intronisation</a>
+  <a class="mob-link" href="#chef" onclick="closeMob()">Le Chef</a>
+  <a class="mob-link" href="#contact" onclick="closeMob()">Nous rejoindre</a>
 </div>
 
-<!-- ══ HERO ══ -->
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-bg" id="heroBg"></div>
-  <div class="hero-pattern"></div>
-  <div class="hero-kente-l"></div>
+  <div class="hero-photo"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-scrim2"></div>
   <div class="hero-in">
-    <div class="hero-eye">Village de Kadjokro &nbsp;·&nbsp; Région du Bélier &nbsp;·&nbsp; Côte d'Ivoire</div>
-    <h1 class="hero-h1">KADJOKRO<span class="accent">Esprit Nouveau</span></h1>
-    <p class="hero-sub">Dans l'unité, la discipline et la prospérité — pour un développement harmonieux et durable du village de Kadjokro.</p>
-    <div class="hero-badges">
-      <span class="hero-badge">Canton N'Zipkri</span>
-      <span class="hero-badge">Sous-préfecture de Toumodi</span>
-      <span class="hero-badge">Peuple Baoulé</span>
-      <span class="hero-badge">Fondé par les ancêtres</span>
+    <div class="hero-kicker">Village Baoulé · Canton N'Zipkri · Région du Bélier</div>
+    <h1 class="hero-title">
+      <span class="ln"><span>KADJOKRO</span></span>
+    </h1>
+    <div class="hero-serif"><span>Esprit Nouveau</span></div>
+    <p class="hero-desc">Dans l'unité, la discipline et la prospérité — pour un développement harmonieux et durable, les pieds dans la tradition et la tête dans le modernisme.</p>
+    <div class="hero-cta-row">
+      <a href="#decouverte" class="btn-gold">Découvrir le village
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+      <a href="#chef" class="btn-ghost">Le chef Assamoi Konan 2</a>
     </div>
   </div>
-  <div class="hero-scroll"><div class="hero-arrow"></div>Défiler</div>
+  <div class="hero-vtag">Toumodi · Côte d'Ivoire</div>
 </section>
 
-<div class="kente"></div>
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Kadjokro, Esprit Nouveau</span><span>Sagesse Baoulé</span><span>4 Grandes Familles</span><span>Intronisation 2025</span><span>Canton N'Zipkri</span>
+    <span>Kadjokro, Esprit Nouveau</span><span>Sagesse Baoulé</span><span>4 Grandes Familles</span><span>Intronisation 2025</span><span>Canton N'Zipkri</span>
+  </div>
+</div>
 
-<!-- ══ DÉCOUVERTE ══ -->
-<section class="sec bg-cream" id="decouverte">
+<!-- DÉCOUVERTE -->
+<section class="sec" id="decouverte">
   <div class="inner">
-    <div class="section-head rv">
-      <div class="eyebrow">À la découverte</div>
-      <h2>Le village de <em>Kadjokro</em></h2>
-      <p class="lead">Niché sur l'axe Toumodi-Yamoussoukro, Kadjokro est un village baoulé authentique où l'hospitalité ancestrale et l'esprit de modernité se rencontrent pour bâtir un avenir commun.</p>
-    </div>
-    <div class="disc-grid">
-      <div class="disc-cards">
-        <div class="disc-card rl d1">
-          <div class="disc-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div>
-            <div class="disc-title">Localisation</div>
-            <div class="disc-text">Axe Toumodi-Yamoussoukro · <strong>12 km</strong> de Toumodi · <strong>17 km</strong> de Yamoussoukro. Sous-préfecture de Toumodi, région du Bélier.</div>
+    <div class="disc-wrap">
+      <div class="disc-figure clip">
+        <span class="frnum">01</span>
+        <img src="img/image7.jpg" alt="Une famille de Kadjokro devant une bâtisse du village">
+        <div class="cap"><b>Terre d'accueil et d'unité</b><small>Kadjokro · Région du Bélier</small></div>
+      </div>
+      <div>
+        <div class="rv"><div class="eyebrow">À la découverte</div>
+        <h2>Le village de <span class="it">Kadjokro</span></h2>
+        <p class="lead" style="color:#6b6050">Niché sur l'axe Toumodi–Yamoussoukro, Kadjokro est un village baoulé authentique où l'hospitalité ancestrale et l'esprit de modernité se rencontrent pour bâtir un avenir commun.</p></div>
+        <div class="disc-list">
+          <div class="disc-item rr d1">
+            <div class="disc-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><h4>Localisation</h4><p>Axe Toumodi-Yamoussoukro · <strong>12 km</strong> de Toumodi · <strong>17 km</strong> de Yamoussoukro. Sous-préfecture de Toumodi, région du Bélier.</p></div>
+          </div>
+          <div class="disc-item rr d2">
+            <div class="disc-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div><h4>Population</h4><p>Environ <strong>522 habitants</strong> (recensement 2014), majoritairement Baoulé, avec des populations allogènes enrichissant la diversité du village.</p></div>
+          </div>
+          <div class="disc-item rr d3">
+            <div class="disc-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div><h4>Canton N'Zipkri</h4><p>Kadjokro fait partie du canton N'Zipkri, rassemblant <strong>9 villages frères</strong> : Akakro, Anikro, Dougba, Kanhankro, Kouamé-Bonou, N'Doukahakro, Toto Kouassikro, Zahakro.</p></div>
+          </div>
+          <div class="disc-item rr d4">
+            <div class="disc-ico"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div><h4>Personnalité illustre</h4><p>Kadjokro a vu naître <strong>feu Pierre DEBRUCHARD</strong>, ancien Préfet hors grade et collaborateur du Président Félix Houphouët Boigny.</p></div>
           </div>
         </div>
-        <div class="disc-card rl d2">
-          <div class="disc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div>
-            <div class="disc-title">Population</div>
-            <div class="disc-text">Environ <strong>522 habitants</strong> (recensement 2014), majoritairement Baoulé, avec des populations allogènes enrichissant la diversité culturelle et économique du village.</div>
-          </div>
-        </div>
-        <div class="disc-card rl d3">
-          <div class="disc-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-          <div>
-            <div class="disc-title">Canton N'Zipkri</div>
-            <div class="disc-text">Kadjokro fait partie du canton N'Zipkri, rassemblant <strong>9 villages frères</strong> : Akakro, Anikro, Dougba, Kanhankro, Kouamé-Bonou, N'Doukahakro, Toto Kouassikro, Zahakro.</div>
-          </div>
-        </div>
-        <div class="disc-card rl d4">
-          <div class="disc-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-          <div>
-            <div class="disc-title">Personnalité illustre</div>
-            <div class="disc-text">Kadjokro a vu naître <strong>feu Pierre DEBRUCHARD</strong>, ancien Préfet hors grade, collaborateur du Président Félix Houphouët Boigny et véritable agent de développement du village.</div>
-          </div>
-        </div>
-      </div>
-      <div class="disc-photo rr d2">
-        <img src="img/image10.png" alt="Village de Kadjokro — Région du Bélier">
-        <div class="disc-photo-label">
-          <div class="name">Kadjokro</div>
-          <div class="sub">Région du Bélier · Côte d'Ivoire</div>
-        </div>
-      </div>
-    </div>
-    <!-- Stats -->
-    <div class="stats-row rv d3">
-      <div class="stat">
-        <div class="stat-n" data-count="522">0</div>
-        <div class="stat-l">Habitants</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n" data-count="9">0</div>
-        <div class="stat-l">Villages du canton</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n" data-count="7">0</div>
-        <div class="stat-l">Chefs successifs</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n" data-count="4">0</div>
-        <div class="stat-l">Grandes familles</div>
       </div>
     </div>
   </div>
@@ -436,249 +433,200 @@ footer{background:var(--forest-d);padding:72px 6vw 32px;color:rgba(255,255,255,.
 
 <div class="kente"></div>
 
-<!-- ══ 4 FAMILLES ══ -->
-<section class="sec bg-cream-d" id="familles">
+<!-- STATS (photo band) -->
+<section class="sec photo-sec" id="stats">
+  <div class="photo-bg fixed"></div>
+  <div class="photo-ov"></div>
   <div class="inner">
-    <div class="section-head rv">
-      <div class="eyebrow">Organisation sociale</div>
-      <h2>Les 4 grandes <em>familles</em></h2>
-      <p class="lead">La vie communautaire de Kadjokro repose sur quatre grandes familles fondatrices, piliers indissociables de l'identité, de la gouvernance et de la cohésion du village depuis des générations.</p>
+    <div class="stats-grid">
+      <div class="stat rv d1"><div class="stat-n" data-count="522">0</div><div class="stat-l">Habitants</div></div>
+      <div class="stat rv d2"><div class="stat-n" data-count="9">0</div><div class="stat-l">Villages du canton</div></div>
+      <div class="stat rv d3"><div class="stat-n" data-count="7">0</div><div class="stat-l">Chefs successifs</div></div>
+      <div class="stat rv d4"><div class="stat-n" data-count="4">0</div><div class="stat-l">Grandes familles</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILLES (photo) -->
+<section class="sec photo-sec" id="familles">
+  <div class="photo-bg fixed"></div>
+  <div class="photo-ov"></div>
+  <div class="inner">
+    <div class="rv" style="text-align:center;max-width:720px;margin:0 auto 10px">
+      <div class="eyebrow light" style="justify-content:center">Organisation sociale</div>
+      <h2 class="on-photo">Les 4 grandes <span class="it">familles</span></h2>
+      <p class="lead on-photo" style="color:rgba(255,255,255,.7);margin-inline:auto">La vie de Kadjokro repose sur quatre familles fondatrices, piliers de l'identité, de la gouvernance et de la cohésion du village depuis des générations.</p>
     </div>
     <div class="fam-grid">
-      <div class="fam-card c1 rv d1" data-n="01">
-        <div class="fam-num">Famille 01</div>
-        <div class="fam-name">N'GODO <span>OSSOU</span></div>
-        <div class="fam-desc">Famille détentrice de la chefferie actuelle. Nanan Assamoi Konan 2 en est l'illustre représentant, portant haut les valeurs de sagesse et de service à la communauté.</div>
-        <span class="fam-badge chief">Famille du Chef actuel</span>
-      </div>
-      <div class="fam-card c2 rv d2" data-n="02">
-        <div class="fam-num">Famille 02</div>
-        <div class="fam-name">N'GUESSAN <span>OSSOU</span></div>
-        <div class="fam-desc">Grande famille traditionnelle contribuant activement à la gouvernance et aux décisions importantes qui façonnent l'avenir du village de Kadjokro.</div>
-        <span class="fam-badge reg">Grande famille</span>
-      </div>
-      <div class="fam-card c3 rv d3" data-n="03">
-        <div class="fam-num">Famille 03</div>
-        <div class="fam-name">AHOU <span>OSSOU</span></div>
-        <div class="fam-desc">Pilier de la tradition baoulé à Kadjokro, gardienne des coutumes et des rites ancestraux qui font la richesse identitaire et spirituelle du village.</div>
-        <span class="fam-badge reg">Grande famille</span>
-      </div>
-      <div class="fam-card c4 rv d4" data-n="04">
-        <div class="fam-num">Famille 04</div>
-        <div class="fam-name">AKISSI <span>OSSOU</span></div>
-        <div class="fam-desc">Quatrième pilier de la communauté, contribuant à l'équilibre et à l'harmonie sociale qui caractérisent la vie à Kadjokro depuis ses origines.</div>
-        <span class="fam-badge reg">Grande famille</span>
-      </div>
+      <div class="fam-card rv d1"><span class="big">01</span><div class="fam-num">Famille 01</div><div class="fam-name">N'GODO <span>Ossou</span></div><p class="fam-desc">Famille détentrice de la chefferie actuelle. Nanan Assamoi Konan 2 en est l'illustre représentant, portant haut les valeurs de sagesse et de service.</p><span class="fam-tag chief">Famille du Chef actuel</span></div>
+      <div class="fam-card rv d2"><span class="big">02</span><div class="fam-num">Famille 02</div><div class="fam-name">N'GUESSAN <span>Ossou</span></div><p class="fam-desc">Grande famille traditionnelle contribuant activement à la gouvernance et aux décisions qui façonnent l'avenir du village.</p><span class="fam-tag reg">Grande famille</span></div>
+      <div class="fam-card rv d3"><span class="big">03</span><div class="fam-num">Famille 03</div><div class="fam-name">AHOU <span>Ossou</span></div><p class="fam-desc">Pilier de la tradition baoulé, gardienne des coutumes et des rites ancestraux qui font la richesse identitaire du village.</p><span class="fam-tag reg">Grande famille</span></div>
+      <div class="fam-card rv d4"><span class="big">04</span><div class="fam-num">Famille 04</div><div class="fam-name">AKISSI <span>Ossou</span></div><p class="fam-desc">Quatrième pilier de la communauté, garant de l'équilibre et de l'harmonie sociale qui caractérisent la vie à Kadjokro.</p><span class="fam-tag reg">Grande famille</span></div>
     </div>
-    <div class="fam-proverb rv d5">
-      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div class="proverb rv d2">
+      <p>«&nbsp;Un village sans chef est comme <span class="q">une case sans pilier</span>.&nbsp;»</p>
+      <cite>— Sagesse Baoulé · Kadjokro</cite>
+    </div>
+  </div>
+</section>
+
+<!-- CHEFS (parallax) -->
+<section class="sec photo-sec" id="chefs">
+  <div class="photo-bg fixed"></div>
+  <div class="photo-ov"></div>
+  <div class="inner">
+    <div class="chefs-wrap">
       <div>
-        <p>«&nbsp;Un village sans chef est comme une case sans pilier.&nbsp;»</p>
-        <cite>— Sagesse Baoulé · Kadjokro</cite>
+        <div class="rv"><div class="eyebrow light">Chefferie traditionnelle</div>
+        <h2 class="on-photo">Nos <span class="it">chefs</span><br>à travers l'histoire</h2></div>
+        <div class="timeline" style="margin-top:44px">
+          <div class="chief rv d1"><div class="chief-dot">1</div><div class="chief-name">Nanan N'Gouan Kadjo</div><div class="chief-meta">Premier Chef — Fondateur du village</div></div>
+          <div class="chief rv d1"><div class="chief-dot">2</div><div class="chief-name">Nanan Ema Kouame</div><div class="chief-meta">Deuxième Chef du village</div></div>
+          <div class="chief rv d2"><div class="chief-dot">3</div><div class="chief-name">Nanan Ema Ponou</div><div class="chief-meta">Troisième Chef du village</div></div>
+          <div class="chief rv d2"><div class="chief-dot">4</div><div class="chief-name">Nanan Kondon Koffi</div><div class="chief-meta">Quatrième Chef du village</div></div>
+          <div class="chief rv d3"><div class="chief-dot">5</div><div class="chief-name">Nanan Kouadio Kouassi</div><div class="chief-meta">1976 – 2012</div></div>
+          <div class="chief rv d3"><div class="chief-dot">6</div><div class="chief-name">Nanan N'Doly Amlan II</div><div class="chief-meta">2015 – 2019</div></div>
+          <div class="chief cur rv d4"><div class="chief-dot cur">7</div><div class="chief-name">Nanan Assamoi Konan II</div><div class="chief-meta">Depuis le 26 Décembre 2025</div><span class="chief-badge">Chef actuel · Esprit Nouveau ✦</span></div>
+        </div>
       </div>
+      <div class="rr"></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRONISATION (photo) -->
+<section class="sec photo-sec" id="intronisation">
+  <div class="photo-bg"></div>
+  <div class="photo-ov"></div>
+  <div class="inner">
+    <div class="intro-head rv">
+      <div class="intro-date" style="justify-content:center">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
+        26 Décembre 2025 — Village de Kadjokro
+      </div>
+      <div class="eyebrow light" style="justify-content:center">Moment historique</div>
+      <h2 class="on-photo">Cérémonie <span class="it">d'intronisation</span></h2>
+      <p class="intro-lead">Après <strong>six longues années d'attente</strong>, le village a vécu un moment solennel : l'intronisation de son septième chef, Nanan Assamoi Konan 2 — chef moderne et modèle, choisi par la notabilité.</p>
+    </div>
+    <div class="mosaic rv">
+      <figure class="m1"><img src="img/image1.jpg" alt="Le chef et son épouse lors de l'intronisation"></figure>
+      <figure class="m2"><img src="img/image4.png" alt="Personnalités présentes à la cérémonie"></figure>
+      <figure class="m3"><img src="img/image6.png" alt="Festivités de l'intronisation"></figure>
+      <figure class="m4"><img src="img/image8.jpg" alt="Invités de la cérémonie"></figure>
+      <figure class="m4"><img src="img/image11.jpg" alt="Invitée en tenue de fête"></figure>
+      <figure class="m4"><img src="img/image2.jpg" alt="Le chef de Kadjokro"></figure>
+      <figure class="m4"><img src="img/image3.png" alt="Notable du village"></figure>
+    </div>
+    <div class="prog">
+      <div class="prog-card rv d1"><div class="prog-num">01</div><div class="prog-t">Accueil des personnalités et invités d'honneur, discours des représentants de la communauté.</div></div>
+      <div class="prog-card rv d2"><div class="prog-num">02</div><div class="prog-t">Rituel traditionnel — remise du <strong>tabouret de la chefferie</strong> et discours de Nanan Assamoi Konan 2.</div></div>
+      <div class="prog-card rv d3"><div class="prog-num">03</div><div class="prog-t">Bénédiction ancestrale, prières et grandes festivités populaires jusque tard dans la nuit.</div></div>
     </div>
   </div>
 </section>
 
 <div class="kente"></div>
 
-<!-- ══ CHEFS ══ -->
-<section class="sec bg-dark" id="chefs">
+<!-- BIOGRAPHIE (magazine) -->
+<section class="sec" id="chef">
   <div class="inner">
-    <div class="section-head rv">
-      <div class="eyebrow" style="color:var(--gold)">Chefferie traditionnelle</div>
-      <h2 style="color:#fff">Nos <em>chefs</em> à travers l'histoire</h2>
-      <p class="lead" style="color:rgba(255,255,255,.6)">Depuis sa fondation, Kadjokro a vu se succéder sept chefs de village — gardiens des traditions, guides de la communauté et artisans du développement local.</p>
-    </div>
-    <div class="timeline">
-      <div class="chief-row rv d1"><div class="chief-dot">1</div><div class="chief-name">NANAN N'GOUAN KADJO</div><div class="chief-period">Premier Chef du village — Fondateur</div><span class="chief-tag reg">Fondateur</span></div>
-      <div class="chief-row rv d2"><div class="chief-dot">2</div><div class="chief-name">NANAN EMA KOUAME</div><div class="chief-period">Deuxième Chef du village</div><span class="chief-tag reg">Continuité</span></div>
-      <div class="chief-row rv d3"><div class="chief-dot">3</div><div class="chief-name">NANAN EMA PONOU</div><div class="chief-period">Troisième Chef du village</div><span class="chief-tag reg">Tradition</span></div>
-      <div class="chief-row rv d4"><div class="chief-dot">4</div><div class="chief-name">NANAN KONDON KOFFI</div><div class="chief-period">Quatrième Chef du village</div><span class="chief-tag reg">Héritage</span></div>
-      <div class="chief-row rv d1"><div class="chief-dot">5</div><div class="chief-name">NANAN KOUADIO KOUASSI</div><div class="chief-period">1976 – 2012</div><span class="chief-tag reg">Cinquième Chef</span></div>
-      <div class="chief-row rv d2"><div class="chief-dot">6</div><div class="chief-name">NANAN N'DOLY AMLAN II</div><div class="chief-period">2015 – 2019</div><span class="chief-tag reg">Sixième Chef</span></div>
-      <div class="chief-row rv d3"><div class="chief-dot cur">7</div><div class="chief-name cur">NANAN ASSAMOI KONAN II</div><div class="chief-period" style="color:rgba(255,255,255,.55)">Depuis le 26 Décembre 2025</div><span class="chief-tag cur">Chef actuel · Esprit Nouveau ✦</span></div>
-    </div>
-  </div>
-</section>
-
-<div class="kente"></div>
-
-<!-- ══ INTRONISATION ══ -->
-<section class="sec bg-forest" id="intronisation">
-  <div class="inner">
-    <div class="section-head rv">
-      <div class="eyebrow" style="color:var(--gold)">Moment historique</div>
-      <h2 style="color:#fff">Cérémonie <em>d'intronisation</em></h2>
-    </div>
-    <div class="intro-split">
-      <div class="rl">
-        <div class="intro-mosaic">
-          <img src="img/image1.jpg" alt="Nanan Assamoi Konan 2 et son épouse lors de l'intronisation">
-          <img src="img/image4.png" alt="Personnalités lors de la cérémonie d'intronisation de Kadjokro">
-          <img src="img/image6.png" alt="Festivités de l'intronisation du chef de Kadjokro">
-        </div>
-        <!-- Gallery swipe -->
-        <div class="gallery-swipe" style="margin-top:16px">
-          <div class="gallery-track" id="galleryTrack">
-            <img src="img/image2.jpg" alt="Kadjokro">
-            <img src="img/image3.png" alt="Kadjokro">
-            <img src="img/image7.jpg" alt="Kadjokro">
-            <img src="img/image8.jpg" alt="Kadjokro">
-            <img src="img/image9.jpg" alt="Kadjokro">
-            <img src="img/image11.jpg" alt="Kadjokro">
-          </div>
-          <div class="gallery-hint"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Faire défiler les photos</div>
-        </div>
-      </div>
-      <div class="rr">
-        <div class="intro-date-badge">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
-          26 Décembre 2025 — Village de Kadjokro
-        </div>
-        <p style="font-size:1rem;line-height:1.85;color:rgba(255,255,255,.8);margin-bottom:18px">Après <strong style="color:#fff">six longues années d'attente</strong>, le village de Kadjokro a vécu un moment solennel et historique : l'intronisation de son septième chef, Nanan Assamoi Konan 2, chef moderne et modèle.</p>
-        <div class="intro-quote">
-          <p>«&nbsp;L'intronisation d'un chef n'est pas un simple acte administratif. C'est le renouvellement d'un pacte sacré entre les vivants, ceux qui nous ont précédés, et la terre qui nous nourrit.&nbsp;»</p>
-          <cite>— Le Secrétariat du Conseil des Notables</cite>
-        </div>
-        <div class="prog-list">
-          <div class="prog-item rv d1"><div class="prog-dot"></div><div class="prog-t">Accueil des personnalités et invités d'honneur</div></div>
-          <div class="prog-item rv d2"><div class="prog-dot"></div><div class="prog-t">Discours des représentants de la communauté</div></div>
-          <div class="prog-item rv d3"><div class="prog-dot"></div><div class="prog-t">Prise de parole des autorités administratives et traditionnelles</div></div>
-          <div class="prog-item rv d4"><div class="prog-dot"></div><div class="prog-t">Rituel traditionnel — remise du <strong style="color:#fff">tabouret de la chefferie</strong></div></div>
-          <div class="prog-item rv d5"><div class="prog-dot"></div><div class="prog-t">Discours de Nanan Assamoi Konan 2</div></div>
-          <div class="prog-item rv d6"><div class="prog-dot"></div><div class="prog-t">Bénédiction ancestrale, prières et festivités</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="kente"></div>
-
-<!-- ══ BIOGRAPHIE ══ -->
-<section class="sec bg-cream" id="chef">
-  <div class="inner">
-    <div class="section-head rv">
+    <div class="rv" style="margin-bottom:48px">
       <div class="eyebrow">Notre chef</div>
-      <h2>Nanan <em>Assamoi Konan 2</em></h2>
+      <h2>Nanan <span class="it">Assamoi Konan 2</span></h2>
     </div>
-    <div class="bio-split">
-      <div class="rl">
-        <div class="bio-frame">
-          <img src="img/image5.png" alt="Nanan Assamoi Konan 2 — Chef du village de Kadjokro">
-          <div class="bio-frame-badge">
-            <div class="bio-frame-name">Nanan Assamoi Konan 2</div>
-            <div class="bio-frame-role">N'DRI N'GUESSAN EUGÈNE · Chef depuis le 26 Décembre 2025</div>
-          </div>
-        </div>
+    <div class="bio-wrap">
+      <div class="bio-portrait rl">
+        <img src="img/image1.jpg" alt="Nanan Assamoi Konan 2, chef de Kadjokro, et son épouse">
+        <div class="plabel"><b>Nanan Assamoi Konan 2</b><small>N'Dri N'Guessan Eugène · 7ᵉ Chef de Kadjokro</small></div>
       </div>
       <div class="rr">
         <div class="bio-chips">
           <span class="chip">Né le 13 juillet 1959</span>
           <span class="chip">Adjamé, Abidjan</span>
-          <span class="chip">Famille N'GODO OSSOU</span>
+          <span class="chip">Famille N'Godo Ossou</span>
           <span class="chip">Maîtrise Sciences Éco.</span>
           <span class="chip">Retraite PETROCI 2019</span>
         </div>
-        <div class="bio-text">
-          <p>Nanan Assamoi Konan 2, N'DRI N'GUESSAN EUGÈNE à l'état civil, est issu de la grande famille N'GODO OSSOU. Son père, feu N'Goran N'Dri dit Bozia, Ancien Combattant de la Légion française, lui a inculqué les valeurs de respect, de dignité et de cohésion sociale qui fondent l'autorité traditionnelle.</p>
-          <p>Après un brillant parcours scolaire (BAC scientifique au Lycée Moderne de Dimbokro) et une Maîtrise en Sciences Économiques spécialisée en GRH et Économie Pétrolière, il bâtit une carrière exemplaire au sein des groupes <strong>BP, ELF/TOTAL</strong> et <strong>PETROCI</strong> où il finit comme Chef de Service Gaz Naturel.</p>
-          <p>Profondément attaché à sa communauté, il fonde la Compagnie culturelle <em>«&nbsp;Tam Tam&nbsp;»</em>, crée en 2008 le <strong>Comité Local Croix-Rouge de Toumodi</strong> et sert comme Conseiller Municipal à la Mairie de Toumodi. Désigné par la notabilité et officiellement intronisé le <strong>26 décembre 2025</strong>.</p>
+        <div class="bio-body">
+          <p>Nanan Assamoi Konan 2, N'Dri N'Guessan Eugène à l'état civil, est issu de la grande famille N'Godo Ossou. Son père, feu N'Goran N'Dri dit Bozia, Ancien Combattant de la Légion française, lui a inculqué les valeurs de respect, de dignité et de cohésion sociale.</p>
+          <p>Après un brillant parcours (BAC scientifique au Lycée Moderne de Dimbokro) et une Maîtrise en Sciences Économiques spécialisée en GRH et Économie Pétrolière, il bâtit une carrière exemplaire au sein des groupes <strong>BP, ELF/TOTAL</strong> et <strong>PETROCI</strong>, où il finit Chef de Service Gaz Naturel.</p>
+          <p>Profondément attaché à sa communauté, il fonde la Compagnie culturelle <em>« Tam Tam »</em>, crée en 2008 le <strong>Comité Local Croix-Rouge de Toumodi</strong> et sert comme Conseiller Municipal. Officiellement intronisé le <strong>26 décembre 2025</strong>.</p>
         </div>
-        <div class="bio-cards">
-          <div class="bio-card">
-            <div class="bio-card-label">Engagements actuels</div>
-            <div class="bio-card-val">Conseiller Municipal — Mairie de Toumodi<br>Président — Croix-Rouge de Toumodi<br>Fondateur — Compagnie «&nbsp;Tam Tam&nbsp;»</div>
-          </div>
-          <div class="bio-card">
-            <div class="bio-card-label">Parcours professionnel</div>
-            <div class="bio-card-val">BP · ELF · TOTAL Énergie<br>PETROCI — Chef de Service<br>Gaz Naturel · Retraite 2019</div>
-          </div>
+        <div class="bio-pull">
+          <p>«&nbsp;Les pieds dans la tradition et la tête dans le modernisme.&nbsp;»</p>
+          <cite>— Vision de Nanan Assamoi Konan 2</cite>
         </div>
-        <div style="margin-top:24px;padding:20px 22px;background:rgba(27,61,32,.07);border-radius:12px;border-left:4px solid var(--gold)">
-          <p style="font-size:.9rem;font-style:italic;color:var(--text);line-height:1.7">«&nbsp;Les pieds dans la tradition et la tête dans le modernisme.&nbsp;»</p>
-          <cite style="display:block;margin-top:6px;font-size:.68rem;font-family:var(--disp);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-style:normal">— Vision de Nanan Assamoi Konan 2</cite>
+        <div class="bio-facts">
+          <div class="bio-fact"><div class="fl">Engagements</div><div class="fv">Conseiller Municipal de Toumodi<br>Président Croix-Rouge de Toumodi<br>Fondateur Compagnie « Tam Tam »</div></div>
+          <div class="bio-fact"><div class="fl">Parcours</div><div class="fv">BP · ELF · TOTAL Énergie<br>PETROCI — Chef de Service<br>Gaz Naturel · Retraite 2019</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="kente"></div>
-
-<!-- ══ RESSOURCES ══ -->
-<section class="sec bg-dark">
+<!-- RESSOURCES (photo) -->
+<section class="sec photo-sec" id="ressources">
+  <div class="photo-bg fixed"></div>
+  <div class="photo-ov"></div>
   <div class="inner">
-    <div class="section-head rv">
-      <div class="eyebrow" style="color:var(--gold)">Potentialités économiques</div>
-      <h2 style="color:#fff">Les richesses de <em>Kadjokro</em></h2>
-      <p class="lead" style="color:rgba(255,255,255,.6)">La terre de Kadjokro est généreuse. Ses ressources naturelles et agricoles constituent le socle d'un développement économique durable pour toute la communauté.</p>
+    <div class="rv" style="max-width:680px">
+      <div class="eyebrow light">Potentialités économiques</div>
+      <h2 class="on-photo">Les richesses de <span class="it">Kadjokro</span></h2>
+      <p class="lead on-photo" style="color:rgba(255,255,255,.7)">La terre de Kadjokro est généreuse. Ses ressources naturelles et agricoles constituent le socle d'un développement durable pour toute la communauté.</p>
     </div>
     <div class="ress-grid">
-      <div class="ress-card rv d1">
-        <div class="ress-ico"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M12 6v6l4 2"/></svg></div>
-        <div class="ress-title">Miel d'excellence</div>
-        <div class="ress-text">Kadjokro est un gros producteur de miel, produit naturel d'excellence reconnu et apprécié dans toute la région du Bélier.</div>
-      </div>
-      <div class="ress-card rv d2">
-        <div class="ress-ico"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.89a2 2 0 0 1-2.49.83"/><path d="M17 8a10 10 0 0 1-7 14"/><path d="M20.5 3C19 3 14.5 4.5 12 8.5c-1.5 2.5-2 5-2 5s3.5 0 6-2c3.5-2.5 4-9.5 4.5-8.5z"/></svg></div>
-        <div class="ress-title">Cultures vivrières</div>
-        <div class="ress-text">Igname, banane, tomate, manioc, taro et palmier à huile prospèrent sur un sol particulièrement fertile et généreux.</div>
-      </div>
-      <div class="ress-card rv d3">
-        <div class="ress-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg></div>
-        <div class="ress-title">Café & Cacao</div>
-        <div class="ress-text">Le sol de Kadjokro est particulièrement propice à la culture du café et du cacao, cultures emblématiques de Côte d'Ivoire.</div>
-      </div>
+      <div class="ress-card rv d1"><div class="ress-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="ress-title">Miel d'excellence</div><div class="ress-text">Kadjokro est un gros producteur de miel, produit naturel d'excellence reconnu et apprécié dans toute la région du Bélier.</div></div>
+      <div class="ress-card rv d2"><div class="ress-ico"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.89a2 2 0 0 1-2.49.83"/><path d="M17 8a10 10 0 0 1-7 14"/><path d="M20.5 3C19 3 14.5 4.5 12 8.5c-1.5 2.5-2 5-2 5s3.5 0 6-2c3.5-2.5 4-9.5 4.5-8.5z"/></svg></div><div class="ress-title">Cultures vivrières</div><div class="ress-text">Igname, banane, tomate, manioc, taro et palmier à huile prospèrent sur un sol particulièrement fertile et généreux.</div></div>
+      <div class="ress-card rv d3"><div class="ress-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg></div><div class="ress-title">Café & Cacao</div><div class="ress-text">Le sol de Kadjokro est particulièrement propice à la culture du café et du cacao, cultures emblématiques de la Côte d'Ivoire.</div></div>
     </div>
   </div>
 </section>
 
-<div class="kente"></div>
-
-<!-- ══ ITINÉRAIRE ══ -->
-<section class="sec bg-cream" id="contact">
+<!-- ITINÉRAIRE (photo) -->
+<section class="sec photo-sec" id="contact">
+  <div class="photo-bg fixed"></div>
+  <div class="photo-ov"></div>
   <div class="inner">
-    <div class="section-head rv">
-      <div class="eyebrow">Venir à Kadjokro</div>
-      <h2>Comment nous <em>rejoindre</em></h2>
-      <p class="lead">Kadjokro vous accueille avec la chaleur légendaire du peuple Baoulé. Voici comment trouver notre village depuis les villes principales.</p>
+    <div class="rv" style="text-align:center;max-width:680px;margin:0 auto 52px">
+      <div class="eyebrow light" style="justify-content:center">Venir à Kadjokro</div>
+      <h2 class="on-photo">Comment nous <span class="it">rejoindre</span></h2>
+      <p class="lead on-photo" style="color:rgba(255,255,255,.7);margin-inline:auto">Kadjokro vous accueille avec la chaleur légendaire du peuple Baoulé.</p>
     </div>
-    <div class="itin-grid">
-      <div class="route-block rl">
+    <div class="itin-wrap">
+      <div class="route-col rl">
         <div class="route-card">
           <div class="route-h"><svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>Depuis Abidjan</div>
           <div class="route-step"><div class="route-n">1</div><div class="route-t">Prendre l'autoroute A3 direction <strong>Yamoussoukro</strong> (~220 km).</div></div>
-          <div class="route-step"><div class="route-n">2</div><div class="route-t">Passer par <strong>Toumodi</strong> — Kadjokro se trouve à <strong>12 km</strong> de Toumodi.</div></div>
-          <div class="route-step"><div class="route-n">3</div><div class="route-t">Continuer sur l'axe — le village est <strong>17 km avant Yamoussoukro</strong>.</div></div>
+          <div class="route-step"><div class="route-n">2</div><div class="route-t">Passer par <strong>Toumodi</strong> — Kadjokro est à <strong>12 km</strong> de Toumodi.</div></div>
+          <div class="route-step"><div class="route-n">3</div><div class="route-t">Continuer sur l'axe : le village est <strong>17 km avant Yamoussoukro</strong>.</div></div>
         </div>
         <div class="route-card">
           <div class="route-h"><svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>Depuis Yamoussoukro</div>
           <div class="route-step"><div class="route-n">1</div><div class="route-t">Prendre la route direction <strong>Toumodi</strong>.</div></div>
-          <div class="route-step"><div class="route-n">2</div><div class="route-t">Kadjokro est à <strong>17 km</strong> de Yamoussoukro sur cet axe.</div></div>
+          <div class="route-step"><div class="route-n">2</div><div class="route-t">Kadjokro se trouve à <strong>17 km</strong> de Yamoussoukro sur cet axe.</div></div>
         </div>
       </div>
-      <div class="rr">
-        <div class="map-card">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <div class="map-card-name">Village de Kadjokro</div>
-          <div class="map-card-loc">Sous-préfecture de Toumodi<br>Région du Bélier, Côte d'Ivoire<br><br>Axe Toumodi–Yamoussoukro<br>12 km de Toumodi · 17 km de Yamoussoukro</div>
-          <a class="map-btn" href="https://www.google.com/maps/search/Kadjokro+Toumodi+Cote+d+Ivoire" target="_blank" rel="noopener">Ouvrir dans Google Maps</a>
-        </div>
+      <div class="map-card rr">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="map-name">Village de Kadjokro</div>
+        <div class="map-loc">Sous-préfecture de Toumodi<br>Région du Bélier, Côte d'Ivoire<br>Axe Toumodi–Yamoussoukro<br>12 km de Toumodi · 17 km de Yamoussoukro</div>
+        <a class="map-btn" href="https://www.google.com/maps/search/Kadjokro+Toumodi+Cote+d+Ivoire" target="_blank" rel="noopener">Ouvrir dans Google Maps
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <div class="kente"></div>
 <footer>
   <div class="footer-in">
     <div class="footer-top">
       <div>
         <div class="footer-brand">KADJOKRO</div>
-        <p class="footer-sub">Village baoulé, sous-préfecture de Toumodi, région du Bélier, Côte d'Ivoire. Fondé par nos ancêtres, guidé par Nanan Assamoi Konan 2.<span class="footer-gold">«&nbsp;Dans l'unité, la discipline et la prospérité.&nbsp;»</span></p>
+        <p class="footer-sub">Village baoulé, sous-préfecture de Toumodi, région du Bélier, Côte d'Ivoire. Fondé par nos ancêtres, guidé par Nanan Assamoi Konan 2.<span class="footer-gold">« Dans l'unité, la discipline et la prospérité. »</span></p>
       </div>
       <div class="footer-col">
         <h4>Navigation</h4>
@@ -686,7 +634,7 @@ footer{background:var(--forest-d);padding:72px 6vw 32px;color:rgba(255,255,255,.
         <a href="#familles">Les 4 Familles</a>
         <a href="#chefs">Nos Chefs</a>
         <a href="#intronisation">Intronisation</a>
-        <a href="#chef">Nanan Assamoi Konan 2</a>
+        <a href="#chef">Le Chef</a>
         <a href="#contact">Nous rejoindre</a>
       </div>
       <div class="footer-col">
@@ -700,69 +648,28 @@ footer{background:var(--forest-d);padding:72px 6vw 32px;color:rgba(255,255,255,.
     </div>
     <div class="footer-bottom">
       <span>© 2025 Village de Kadjokro · Tous droits réservés</span>
-      <div class="footer-gem"><span></span>KADJOKRO, ESPRIT NOUVEAU<span></span></div>
+      <div class="footer-gem"><span></span>Kadjokro, Esprit Nouveau<span></span></div>
     </div>
   </div>
 </footer>
 
 <script>
-// ── SPLASH ──
-window.addEventListener('load', () => {
-  const bg = document.getElementById('heroBg');
-  if (bg) bg.classList.add('loaded');
-  setTimeout(() => document.getElementById('splash').classList.add('gone'), 1400);
-});
+function closeMob(){document.getElementById('mob').classList.remove('open')}
 
-// ── SCROLL REVEALS ──
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.rv,.rl,.rr').forEach(el => obs.observe(el));
+// Splash
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('splash').classList.add('gone'),1500)});
 
-// ── COUNTERS ──
-const cntObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target, target = parseInt(el.dataset.count);
-    let cur = 0;
-    const step = Math.max(Math.ceil(target / 50), 1);
-    const t = setInterval(() => {
-      cur = Math.min(cur + step, target);
-      el.textContent = cur.toLocaleString('fr-FR');
-      if (cur >= target) clearInterval(t);
-    }, 28);
-    cntObs.unobserve(el);
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
+// Nav scroll state
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>60)},{passive:true});
 
-// ── GALLERY SWIPE (drag) ──
-const track = document.getElementById('galleryTrack');
-if (track) {
-  let isDragging = false, startX = 0, scrollLeft = 0;
-  track.addEventListener('mousedown', e => {
-    isDragging = true; track.classList.add('dragging');
-    startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft;
-  });
-  document.addEventListener('mouseup', () => { isDragging = false; track.classList.remove('dragging'); });
-  track.addEventListener('mousemove', e => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - track.offsetLeft;
-    track.scrollLeft = scrollLeft - (x - startX);
-  });
-  // Touch
-  track.addEventListener('touchstart', e => { startX = e.touches[0].pageX; scrollLeft = track.scrollLeft; }, { passive: true });
-  track.addEventListener('touchmove', e => {
-    const x = e.touches[0].pageX;
-    track.scrollLeft = scrollLeft - (x - startX);
-  }, { passive: true });
-  // Make track scrollable
-  track.style.overflowX = 'auto';
-  track.style.scrollbarWidth = 'none';
-}
+// Reveals
+const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv,.rl,.rr,.clip').forEach(el=>obs.observe(el));
+
+// Counters
+const cObs=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.count;let c=0;const step=Math.max(Math.ceil(t/45),1);const iv=setInterval(()=>{c=Math.min(c+step,t);el.textContent=c.toLocaleString('fr-FR');if(c>=t)clearInterval(iv)},26);cObs.unobserve(el)})},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
 </script>
 </body>
 </html>
