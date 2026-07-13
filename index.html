@@ -166,6 +166,15 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--go
 .disc-item h4{font-family:var(--disp);font-weight:700;font-size:.94rem;color:#fff}
 .disc-item p{font-size:.85rem;color:rgba(255,255,255,.62);line-height:1.65;margin-top:4px}
 .disc-item strong{color:var(--gold-l)}
+.doc-btn{display:inline-flex;align-items:center;gap:11px;margin-top:24px;background:rgba(200,146,42,.14);border:1px solid rgba(200,146,42,.45);color:#fff;font-family:var(--disp);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:12px 22px;border-radius:100px;transition:background .25s,transform .25s}
+.doc-btn:hover{background:rgba(200,146,42,.28);transform:translateY(-2px)}
+.doc-btn .pi{width:30px;height:30px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.doc-btn .pi svg{width:13px;height:13px;fill:var(--forest-d);margin-left:2px}
+.doc-badge{position:absolute;top:18px;right:18px;z-index:3;display:flex;align-items:center;gap:8px;background:rgba(7,15,10,.74);border:1px solid rgba(200,146,42,.4);padding:7px 14px 7px 8px;border-radius:100px;text-decoration:none;transition:background .25s}
+.doc-badge:hover{background:rgba(200,146,42,.32)}
+.doc-badge .pi{width:24px;height:24px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center}
+.doc-badge .pi svg{width:11px;height:11px;fill:var(--forest-d);margin-left:1px}
+.doc-badge span{font-family:var(--disp);font-size:.56rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff}
 
 /* stats */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,3vw,40px);text-align:center;margin-top:56px;padding-top:44px;border-top:1px solid rgba(255,255,255,.1)}
@@ -478,13 +487,15 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
     <div class="disc-wrap">
       <div class="disc-figure clip">
         <span class="frnum">01</span>
+        <a class="doc-badge" href="https://youtu.be/zi4eEHP_WcM" target="_blank" rel="noopener" aria-label="Voir le documentaire"><span class="pi"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span>Documentaire</span></a>
         <img src="img/residence.jpg" alt="La résidence du chef à Kadjokro">
         <div class="cap"><b>Terre d'accueil et d'unité</b><small>Kadjokro · Région du Bélier</small></div>
       </div>
       <div>
         <div class="rv"><div class="eyebrow">À la découverte</div>
         <h2>Le village de <span class="it">Kadjokro</span></h2>
-        <p class="lead">Niché sur l'axe Toumodi–Yamoussoukro, Kadjokro est un village baoulé authentique — terre d'or, de traditions et d'hospitalité — où la coutume et l'esprit de modernité se rencontrent pour bâtir un avenir commun.</p></div>
+        <p class="lead">Niché sur l'axe Toumodi–Yamoussoukro, Kadjokro est un village baoulé authentique — terre d'or, de traditions et d'hospitalité — où la coutume et l'esprit de modernité se rencontrent pour bâtir un avenir commun.</p>
+        <a class="doc-btn" href="https://youtu.be/zi4eEHP_WcM" target="_blank" rel="noopener"><span class="pi"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>Regarder le documentaire</a></div>
         <div class="disc-list">
           <div class="disc-item rr d1">
             <div class="disc-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -917,9 +928,8 @@ const hv=document.querySelector('#hymne video');
 const lyrTrack=document.getElementById('lyrics');
 if(hv&&lyrTrack){
   const lines=[...lyrTrack.querySelectorAll('.lyric-line')];
-  const weights=lines.map(l=>Math.max(l.textContent.length,14));
-  const totalW=weights.reduce((a,b)=>a+b,0);
-  const starts=[];let acc=0;weights.forEach(w=>{starts.push(acc/totalW);acc+=w});
+  // Minutages de chaque ligne en secondes (début du chant). À ajuster finement.
+  const TIMES=[9,15,24,35,47,60,72,88,99,107,118,125,133,142,157];
   const view=lyrTrack.parentElement;
   let cur=-1;
   function setActive(idx){
@@ -929,13 +939,13 @@ if(hv&&lyrTrack){
     if(l)lyrTrack.style.transform='translateY('+(view.clientHeight/2-(l.offsetTop+l.offsetHeight/2))+'px)';
   }
   function sync(){
-    const d=hv.duration||166,f=hv.currentTime/d;
-    let idx=0;for(let i=0;i<starts.length;i++){if(starts[i]<=f)idx=i;else break;}
+    const t=hv.currentTime;
+    let idx=0;for(let i=0;i<TIMES.length;i++){if(t>=TIMES[i])idx=i;else break;}
     setActive(idx);
   }
   hv.addEventListener('timeupdate',sync);
   hv.addEventListener('seeked',sync);
-  lines.forEach((l,i)=>l.addEventListener('click',()=>{hv.currentTime=starts[i]*(hv.duration||166);hv.play()}));
+  lines.forEach((l,i)=>l.addEventListener('click',()=>{hv.currentTime=TIMES[i];hv.play()}));
   requestAnimationFrame(()=>setActive(0));
   addEventListener('resize',()=>{const c=cur<0?0:cur;cur=-1;setActive(c)});
 }
