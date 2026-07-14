@@ -327,6 +327,17 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
 .lyric-line.active{color:#fff;font-weight:600;transform:scale(1.05)}
 .lyric-line.active::before{content:'';display:inline-block;width:8px;height:8px;background:var(--gold);border-radius:2px;transform:rotate(45deg);margin-right:12px;vertical-align:middle}
 .lyric-line em{font-style:normal;font-family:var(--disp);font-size:.6em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-l);vertical-align:middle;margin-left:6px}
+.cal{margin-top:18px}
+.cal-btn{background:none;border:1px solid rgba(200,146,42,.4);color:var(--gold-l);font-family:var(--disp);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:9px 16px;border-radius:100px;cursor:pointer;transition:background .2s}
+.cal-btn:hover{background:rgba(200,146,42,.16)}
+.cal-panel{display:none;margin-top:14px;padding:16px;border:1px solid rgba(200,146,42,.28);border-radius:12px;background:rgba(7,15,10,.5)}
+.cal-panel.active{display:block}
+.cal-tap{width:100%;background:var(--gold);color:var(--forest-d);border:none;font-family:var(--disp);font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:14px;border-radius:9px;cursor:pointer;transition:transform .1s}
+.cal-tap:active{transform:scale(.98)}
+.cal-status{font-family:var(--body);font-size:.8rem;line-height:1.5;color:rgba(255,255,255,.78);margin-top:12px}
+.cal-out{display:none;font-family:monospace;font-size:.74rem;color:var(--gold-l);margin-top:10px;word-break:break-all;background:rgba(0,0,0,.3);padding:10px 12px;border-radius:8px}
+.cal-panel.done .cal-out{display:block}
+.cal-panel.done .cal-tap{display:none}
 
 /* ══ BLOG / ACTUALITÉS ══ */
 #actualites .photo-bg{background-image:url('img/villageois.jpg');background-position:center 40%}
@@ -835,6 +846,14 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
             <p class="lyric-line">Vive Kadjokro, esprit nouveau ! <em>bis</em></p>
           </div>
         </div>
+        <div class="cal">
+          <button type="button" class="cal-btn" id="cal-btn">⚙ Régler la synchro</button>
+          <div class="cal-panel" id="cal-panel">
+            <button type="button" class="cal-tap" id="cal-tap">▶ Marquer la ligne · ou touche Espace</button>
+            <div class="cal-status" id="cal-status"></div>
+            <code class="cal-out" id="cal-out"></code>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1032,10 +1051,12 @@ const hv=document.querySelector('#hymne video');
 const lyrTrack=document.getElementById('lyrics');
 if(hv&&lyrTrack){
   const lines=[...lyrTrack.querySelectorAll('.lyric-line')];
-  // Minutages de chaque ligne en secondes (début du chant). À ajuster finement.
-  const TIMES=[9,15,24,35,47,60,72,88,99,107,118,125,133,142,157];
+  // Minutages par défaut (secondes). Remplacés par le réglage utilisateur si disponible.
+  const DEFAULT=[9,15,24,35,47,60,72,88,99,107,118,125,133,142,157];
+  let TIMES=DEFAULT.slice();
+  try{const s=JSON.parse(localStorage.getItem('kadjokro_hymne_times')||'null');if(Array.isArray(s)&&s.length===lines.length)TIMES=s;}catch(e){}
   const view=lyrTrack.parentElement;
-  let cur=-1;
+  let cur=-1, calib=false, capt=[];
   function setActive(idx){
     if(idx===cur)return;cur=idx;
     lines.forEach((l,i)=>{l.classList.toggle('active',i===idx);l.classList.toggle('past',i<idx)});
@@ -1043,15 +1064,46 @@ if(hv&&lyrTrack){
     if(l)lyrTrack.style.transform='translateY('+(view.clientHeight/2-(l.offsetTop+l.offsetHeight/2))+'px)';
   }
   function sync(){
-    const t=hv.currentTime;
+    if(calib)return;
+    const t=hv.currentTime+0.15;
     let idx=0;for(let i=0;i<TIMES.length;i++){if(t>=TIMES[i])idx=i;else break;}
     setActive(idx);
   }
   hv.addEventListener('timeupdate',sync);
   hv.addEventListener('seeked',sync);
-  lines.forEach((l,i)=>l.addEventListener('click',()=>{hv.currentTime=TIMES[i];hv.play()}));
   requestAnimationFrame(()=>setActive(0));
   addEventListener('resize',()=>{const c=cur<0?0:cur;cur=-1;setActive(c)});
+
+  // ── Outil de réglage de la synchro ──
+  const calBtn=document.getElementById('cal-btn'), calPanel=document.getElementById('cal-panel');
+  const calStatus=document.getElementById('cal-status'), calOut=document.getElementById('cal-out'), calTap=document.getElementById('cal-tap');
+  function tap(){
+    if(!calib)return;
+    const i=capt.length;
+    if(i<lines.length){capt.push(Math.round(hv.currentTime*10)/10);cur=-1;setActive(i);}
+    if(capt.length>=lines.length){
+      TIMES=capt.slice();localStorage.setItem('kadjokro_hymne_times',JSON.stringify(TIMES));
+      calib=false;calBtn.textContent='⚙ Régler la synchro';calPanel.classList.add('done');
+      calStatus.textContent='Synchro enregistrée ✓ — sauvegardée sur cet appareil. Copie ces chiffres et envoie-les moi pour les figer définitivement :';
+      calOut.textContent='['+TIMES.join(', ')+']';
+    }else{
+      calStatus.textContent='Ligne '+capt.length+'/'+lines.length+' marquée — tape au début de la ligne suivante.';
+    }
+  }
+  lines.forEach((l,i)=>l.addEventListener('click',()=>{ if(calib){tap();} else {hv.currentTime=TIMES[i];hv.play();} }));
+  if(calBtn)calBtn.addEventListener('click',()=>{
+    if(!calib){
+      calib=true;capt=[];cur=-1;setActive(0);
+      calPanel.classList.add('active');calPanel.classList.remove('done');
+      calBtn.textContent='✕ Arrêter';
+      calStatus.textContent='Lance l\'hymne, puis tape « Espace » (ou le bouton doré) au tout début de chaque ligne chantée.';
+      calOut.textContent='';hv.currentTime=0;hv.play();
+    }else{
+      calib=false;calBtn.textContent='⚙ Régler la synchro';calPanel.classList.remove('active');sync();
+    }
+  });
+  if(calTap)calTap.addEventListener('click',tap);
+  addEventListener('keydown',e=>{if(calib&&e.code==='Space'){e.preventDefault();tap();}});
 }
 
 // ── Lightbox galerie ──
