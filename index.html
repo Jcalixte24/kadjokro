@@ -1052,7 +1052,7 @@ const lyrTrack=document.getElementById('lyrics');
 if(hv&&lyrTrack){
   const lines=[...lyrTrack.querySelectorAll('.lyric-line')];
   // Minutages par défaut (secondes). Remplacés par le réglage utilisateur si disponible.
-  const DEFAULT=[9,15,24,35,47,60,72,88,99,107,118,125,133,142,157];
+  const DEFAULT=[4.5,7,11.6,15.6,22.6,30.4,36.2,53.5,60.4,65,79.2,83,84.7,99,123.9];
   let TIMES=DEFAULT.slice();
   try{const s=JSON.parse(localStorage.getItem('kadjokro_hymne_times')||'null');if(Array.isArray(s)&&s.length===lines.length)TIMES=s;}catch(e){}
   const view=lyrTrack.parentElement;
