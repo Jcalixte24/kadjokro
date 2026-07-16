@@ -446,7 +446,12 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
 /* ══ BLOG / ACTUALITÉS ══ */
 #actualites .photo-bg{background-image:url('img/villageois.jpg');background-position:center 40%}
 #actualites .photo-ov{background:linear-gradient(180deg,rgba(10,23,16,.93),rgba(18,38,26,.95))}
-.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:20px;margin-top:48px}
+.news-media.video::before{content:'';position:absolute;inset:0;background:rgba(7,15,10,.3);z-index:1;transition:background .3s}
+.news-card:hover .news-media.video::before{background:rgba(7,15,10,.12)}
+.news-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;width:58px;height:58px;border-radius:50%;background:rgba(200,146,42,.94);display:flex;align-items:center;justify-content:center;transition:transform .3s}
+.news-card:hover .news-play{transform:translate(-50%,-50%) scale(1.1)}
+.news-play svg{width:22px;height:22px;fill:var(--forest-d);margin-left:3px}
 .news-card{display:flex;flex-direction:column;background:rgba(255,255,255,.045);border:1px solid rgba(200,146,42,.2);border-radius:12px;overflow:hidden;transition:transform .4s var(--ease),border-color .4s,background .4s;text-decoration:none}
 .news-card:hover{transform:translateY(-6px);border-color:rgba(200,146,42,.55);background:rgba(255,255,255,.07)}
 .news-media{height:180px;position:relative;overflow:hidden;background:var(--forest-d)}
@@ -975,7 +980,16 @@ footer::before{content:'KADJOKRO';position:absolute;bottom:-3vw;left:50%;transfo
       <p class="lead on-photo" style="color:rgba(255,255,255,.72);margin-inline:auto">L'intronisation de Nanan Assamoi Konan II a été couverte par la presse nationale. Retrouvez les articles consacrés à l'événement.</p>
     </div>
     <div class="news-grid">
-      <a class="news-card rv d1" href="https://lesechosci.net/2026/04/27/kadjokro-chefferie-traditionnelle-nanan-assamoi-konan-ii-intronise-dans-une-liesse-populaire/" target="_blank" rel="noopener">
+      <a class="news-card rv d1" href="https://www.facebook.com/watch/?v=2328037907614751" target="_blank" rel="noopener">
+        <div class="news-media video"><span class="news-src">Vidéo · Facebook</span><span class="news-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><img src="img/place-village.jpg" alt="Anikro et Kadjokro sur l'ancienne route Toumodi-Yamoussoukro" loading="lazy"></div>
+        <div class="news-body">
+          <div class="news-date">Le Baoulé en Ligne · Reportage vidéo</div>
+          <div class="news-title">Bienvenue à Anikro–Kadjokro, deux villages N'Zigbli</div>
+          <p class="news-exc">Découvrez en vidéo les villages d'Anikro et Kadjokro, situés sur l'ancienne route Toumodi–Yamoussoukro, présentés par la page « Le Baoulé en Ligne ».</p>
+          <span class="news-more">Voir la vidéo <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a class="news-card rv d2" href="https://lesechosci.net/2026/04/27/kadjokro-chefferie-traditionnelle-nanan-assamoi-konan-ii-intronise-dans-une-liesse-populaire/" target="_blank" rel="noopener">
         <div class="news-media"><span class="news-src">Les Échos CI</span><img src="img/couronnement.jpg" alt="Intronisation dans une liesse populaire" loading="lazy"></div>
         <div class="news-body">
           <div class="news-date">27 avril 2026 · Chefferie traditionnelle</div>
